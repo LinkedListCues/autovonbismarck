@@ -16,3 +16,5 @@ if __name__ == '__main__':
 	config = CanvasConfig()
 	overlord = Overlord(config)
 	overlord.PrepareSubmissions()
+	overlord.PrepareTestables()
+	overlord.RunTests()
