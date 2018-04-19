@@ -102,16 +102,23 @@ class Testable(CanvasElement):
 		url = self.submission.attachment_urls[0]
 		file = requests.get(url, stream=True)
 		zipname = str(self.submission.ident) + '_zip.zip'
-		zippath = os.path.join(self.path, zipname)
-		with open(zippath, 'wb') as zp:
-			zp.write(file.content)
-		print('Wrote zip file to: ' + zippath)
+		self.zippath = os.path.join(self.path, zipname)
 
+		with open(self.zippath, 'wb') as zp:
+			zp.write(file.content)
+		print('Wrote zip file to: ' + self.zippath)
+
+		
+
+	def UnzipSubmission(self):
+		if not self.submission.submitted: return
+		respath = self.zippath.split('.')[0]
+		with open (self.zippath, 'rb') as zp:
+			z = zipfile.ZipFile(zp)
+			z.extractall(respath)
 		# z = zipfile.ZipFile(io.BytesIO(file.content))
 		# z.extractall(self.path)
 		# print('Extracted file to: ' + self.path)
-
-	def UnzipSubmission(self):
 		return
 
 	def Prepare(self):
