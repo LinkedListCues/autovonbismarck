@@ -45,7 +45,8 @@ if __name__ == '__main__':
 		ind += 1
 		print(str(ind) + '\tof\t'+ count)
 		submission = Submission(directory)
-		tester.RunTests(submission)
+		grade = 1 if tester.RunTests(submission) else 0
+		print('"Grade:" ' + str(grade) + '\n')
 
 	# tester.RunTests(submission)
 	# overlord = Overlord(config)
