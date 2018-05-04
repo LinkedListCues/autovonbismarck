@@ -30,6 +30,7 @@ class TestRunner(object):
 
 		return (True, None)
 
+
 	def ExportOutput(self, submission, output, target_directory):
 		filename = os.path.join(target_directory, submission.submission_id + '_output')
 		print('Writing output for ' + submission.submission_id + ' to file: ' + filename)
