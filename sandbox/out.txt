@@ -34,5 +34,5 @@ Serie de pruebas Completado.
   Pasada  20
   ----------
   Total   20
-Archivo de resultados:    C:\Users\Ethan\Projects\214\autovonbismarck\sandbox\TestResults\Ethan_STOVE-MASTER 2018-05-03 22_31_13.trx
+Archivo de resultados:    C:\Users\Ethan\Projects\214\autovonbismarck\sandbox\TestResults\Ethan_STOVE-MASTER 2018-05-03 22_48_19.trx
 Configuración de pruebas: Configuración de pruebas predeterminada

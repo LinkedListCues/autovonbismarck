@@ -1,4 +1,4 @@
-import requests, json
+import requests, json, os
 from pprint import pprint
 from tester import TestRunner
 
@@ -28,18 +28,26 @@ class CanvasConfig(object):
 class Submission(object):
 	"""Container class for holding submission information, including id,
 	seconds_late, and the directory in which the relevant files are stored"""
-	def __init__(self):
+	def __init__(self, spoof):
 		super(Submission, self).__init__()
-		self.submission_id = '12546345'
-		self.directory = './12546345'
+		self.submission_id = spoof
+		self.directory = os.path.join('./test', spoof)
 
 
 if __name__ == '__main__':
-	submission = Submission()
-
 	config = CanvasConfig('config.json')
 	tester = TestRunner(config, 'Assignment1.dll', 'QueueTests.dll')
-	tester.RunTests(submission)
+
+	paths = os.listdir('./test/')
+	count = str(len(paths))
+	ind = 0
+	for directory in paths:
+		ind += 1
+		print(str(ind) + '\tof\t'+ count)
+		submission = Submission(directory)
+		tester.RunTests(submission)
+
+	# tester.RunTests(submission)
 	# overlord = Overlord(config)
 	# overlord.PrepareSubmissions()
 	# overlord.PrepareTestables()
