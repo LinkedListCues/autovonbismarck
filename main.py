@@ -1,4 +1,4 @@
-import requests, json, os
+import requests, json, os, gc
 from pprint import pprint
 from tester import TestRunner
 
@@ -33,20 +33,44 @@ class Submission(object):
 		self.submission_id = spoof
 		self.directory = os.path.join('./test', spoof)
 
+def MaybeDownloadAll():
+	if not DOWNLOAD_ALL: return
+	print('Downloading all projects...')
 
-if __name__ == '__main__':
-	config = CanvasConfig('config.json')
-	tester = TestRunner(config, 'Assignment1.dll', 'QueueTests.dll')
-
+def MaybeBuildAll():
+	if not BUILD_ALL: return
+	print('Building all projects...')
 	paths = os.listdir('./test/')
 	count = str(len(paths))
 	ind = 0
 	for directory in paths:
 		ind += 1
-		print(str(ind) + '\tof\t'+ count)
 		submission = Submission(directory)
-		grade = 1 if tester.RunTests(submission) else 0
-		print('"Grade:" ' + str(grade) + '\n')
+		print(submission.submission_id + ' - ' + str(ind) + '\tof\t' + count, end=' ')
+		tester.BuildStudentDLL(submission.directory, submission.submission_id)
+		print()
+		
+def MaybeRunTests():
+	if not RUN_TESTS: return
+	print('Running all tests...')
+	paths = os.listdir('./test/')
+	count = str(len(paths))
+	ind = 0
+	for directory in paths:
+		ind += 1
+		print(str(ind) + '\tof\t'+ count, end=' ')
+		submission = Submission(directory)
+		tester.RunTests(submission)
+
+BUILD_ALL = True
+RUN_TESTS = False
+if __name__ == '__main__':
+	config = CanvasConfig('config.json')
+	tester = TestRunner(config, 'Assignment1.dll', 'QueueTests.dll')
+
+	MaybeBuildAll()
+	gc.collect()
+	
 
 	# tester.RunTests(submission)
 	# overlord = Overlord(config)
