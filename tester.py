@@ -16,8 +16,8 @@ class TestRunner(object):
 		self._test_string = self._mstest + ' "/testcontainer:"' + self._test_dll + ' "/detail:errormessage" >| out.txt'  # sorry; this sucks
 
 	def RunTests(self, submission):
-		success = self.PrepareStudentDLL(submission.directory, self._assignment_dll)
-		if not success: return False
+		result = self.PrepareStudentDLL(submission.directory, self._assignment_dll)
+		if not result[0]: return result
 
 		os.chdir('./sandbox')
 		if os.path.isfile('out.txt'): os.remove('out.txt')
@@ -28,40 +28,36 @@ class TestRunner(object):
 		shutil.rmtree('./TestResults', ignore_errors=True)
 		os.chdir('./..')
 
-		print()
-		return True
+		return (True, None)
 
 	def BuildStudentDLL(self, search_directory, submission_id):
+		if len(os.listdir(search_directory)) == 0: return (False, 'Nothing submitted.')
+
 		results = glob.glob(search_directory + '/**/*.csproj', recursive=True)
 		
 		target = None
-		if results: target = results[0]  # here's hoping that they have only one .sln
+		if results: target = results[0]  # here's hoping that they have only one .csproj
 
-		if not target:
-			print('No .csproj found in ' + search_directory)
-			return False
+		if not target: return (False, 'No .csproj found')
 
 		buildpath = self._msbuild + ' "' + target + '"'
 		output = subprocess.Popen(buildpath, stdout=subprocess.PIPE, shell=True).stdout.read()
 
 		output = str(output)
 		# TODO this is a bit of a mess
-		if '0 Errores' not in output:
-			print('Non-zero errors for directory: ' + search_directory)
-			return False
+		if '0 Errores' not in output: return (False, 'Non-zero errors')
 
-		return True
+		return (True, None)
 
 	def PrepareStudentDLL(self, search_directory, assignment, sandbox_dir='sandbox/'):
 		goal_path = os.path.join(sandbox_dir, assignment)
 		if os.path.isfile(goal_path): os.remove(goal_path)
 
 		path = self.FindAssignmentDLLPath(search_directory, assignment)
-		if not path:
-			print('No assignment dll of the appropriate name found after build: ' + search_directory)
-			return False # Maybe cheating?? # TODO add explanantions to everything
+		if not path: return (False, 'No assignment dll of the appropriate name found after build')
+
 		os.rename(path, goal_path)
-		return True
+		return (True, None)
 
 	def FindAssignmentDLLPath(self, directory, assignment_name):
 		results = glob.glob(directory + '/**/Assignment1.dll', recursive=True)

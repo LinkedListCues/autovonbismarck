@@ -33,44 +33,77 @@ class Submission(object):
 		self.submission_id = spoof
 		self.directory = os.path.join('./test', spoof)
 
+		self.success = True
+		self.explanation = ''
+		self.comment = ''
+
+	def UpdateExplanation(self, result):
+		self.success = result[0]
+		self.explanation = result[1]
+
+	def SetComment(self, comment):
+		self.comment = comment
+
+
 def MaybeDownloadAll():
 	if not DOWNLOAD_ALL: return
 	print('Downloading all projects...')
 
-def MaybeBuildAll():
+
+def MakeRoster():
+	results = {}
+	paths = os.listdir('./test/')
+	for directory in paths:
+		submission = Submission(directory)
+		results[directory] = submission
+	return results
+
+
+def MaybeBuildAll(submissions):
 	if not BUILD_ALL: return
 	print('Building all projects...')
-	paths = os.listdir('./test/')
-	count = str(len(paths))
+	count = str(len(submissions))
 	ind = 0
-	for directory in paths:
+	for submission in submissions.values():
 		ind += 1
-		submission = Submission(directory)
-		print(submission.submission_id + ' - ' + str(ind) + '\tof\t' + count, end=' ')
-		tester.BuildStudentDLL(submission.directory, submission.submission_id)
-		print()
+		print(submission.submission_id + ' - ' + str(ind) + '\tof  ' + count, end=' ')
+		result = tester.BuildStudentDLL(submission.directory, submission.submission_id)
 		
-def MaybeRunTests():
+		if not result[0]:
+			submission.UpdateExplanation(result)
+			print(result[1])
+		else: print()
+
+		
+def MaybeRunTests(submissions):
 	if not RUN_TESTS: return
 	print('Running all tests...')
-	paths = os.listdir('./test/')
-	count = str(len(paths))
+	count = str(len(submissions))
 	ind = 0
-	for directory in paths:
-		ind += 1
-		print(str(ind) + '\tof\t'+ count, end=' ')
-		submission = Submission(directory)
-		tester.RunTests(submission)
+	for submission in submissions.values():
+		if not submission.success: continue # already failed
 
-BUILD_ALL = True
-RUN_TESTS = False
+		ind += 1
+		print(submission.submission_id + ' - ' + str(ind) + '\tof  ' + count, end=' ')
+		result = tester.RunTests(submission)
+		
+		if not result[0]:
+			submission.UpdateExplanation(result)
+			print(result[1])
+		else: print()
+
+
+BUILD_ALL = False
+RUN_TESTS = True
 if __name__ == '__main__':
 	config = CanvasConfig('config.json')
 	tester = TestRunner(config, 'Assignment1.dll', 'QueueTests.dll')
 
-	MaybeBuildAll()
+	submissions = MakeRoster()
+	MaybeBuildAll(submissions)
 	gc.collect()
-	
+	MaybeRunTests(submissions)
+	gc.collect()
 
 	# tester.RunTests(submission)
 	# overlord = Overlord(config)
