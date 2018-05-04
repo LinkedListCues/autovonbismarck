@@ -1,4 +1,4 @@
-import requests, json, os, gc
+import requests, json, os, gc, shutil
 from pprint import pprint
 from tester import TestRunner
 
@@ -122,7 +122,6 @@ if __name__ == '__main__':
 			print(result[1])
 			continue
 
-		
 
 	# MaybeBuildAll(submissions)
 	# gc.collect()

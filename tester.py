@@ -13,7 +13,7 @@ class TestRunner(object):
 		self._assignment_dll = assignment_dll
 		self._test_dll = test_dll
 
-		self._test_string = self._mstest + ' "/testcontainer:"' + self._test_dll + ' "/detail:errormessage" >| out.txt'  # sorry; this sucks
+		self._test_string = self._mstest + ' "/testcontainer:"' + self._test_dll + ' "/detail:errormessage" "/nologo"'
 
 
 	def RunTests(self, submission):
@@ -21,16 +21,20 @@ class TestRunner(object):
 		if not result[0]: return result
 
 		os.chdir('./sandbox')
-		if os.path.isfile('out.txt'): os.remove('out.txt')
 
 		print('Running unit tests for submission: \t' + submission.submission_id)
-		subprocess.Popen(self._test_string, stdout=subprocess.PIPE, shell=True)
+		output = subprocess.Popen(self._test_string, stdout=subprocess.PIPE, shell=True).stdout.read()
 
-		shutil.rmtree('./TestResults', ignore_errors=True)
+		self.ExportOutput(submission, output, '../results')
 		os.chdir('./..')
 
 		return (True, None)
 
+	def ExportOutput(self, submission, output, target_directory):
+		filename = os.path.join(target_directory, submission.submission_id + '_output')
+		print('Writing output for ' + submission.submission_id + ' to file: ' + filename)
+		with open(filename, 'wb') as output_file:
+			output_file.write(output)
 
 	def BuildStudentDLL(self, search_directory, submission_id):
 		if len(os.listdir(search_directory)) == 0: return (False, 'Nothing submitted.')
