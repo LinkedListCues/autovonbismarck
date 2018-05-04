@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="df0cd598-b64e-417c-a7a7-1942e31c874d" name="Ethan@STOVE-MASTER 2018-05-03 21:54:22" runUser="STOVE-MASTER\Ethan" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Configuración de pruebas predeterminada" id="5f285317-2301-4832-8330-4bb3512b593a">
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+    <Deployment runDeploymentRoot="Ethan_STOVE-MASTER 2018-05-03 21_54_22" />
+    <Properties />
+  </TestSettings>
+  <Times creation="2018-05-03T21:54:22.5058693-05:00" queuing="2018-05-03T21:54:22.8077494-05:00" start="2018-05-03T21:54:22.8764318-05:00" finish="2018-05-03T21:54:23.4525882-05:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="20" executed="20" error="0" failed="20" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="STOVE-MASTER" outcome="Warning" timestamp="2018-05-03T21:54:22.6110429-05:00">
+        <Text>Advertencia: problema de implementación de serie de pruebas: no se encuentra el ensamblado o módulo 'Assignment1' al que hace referencia directa o indirectamente el contenedor de prueba 'C:\Users\Ethan\Projects\214\autovonbismarck\sandbox\queuetests.dll'.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="NonEmptyQueueReadsNotEmptyTest" storage="queuetests.dll" id="091f89d3-0ed1-30d7-5c4b-fdd3fa0faa90">
+      <Execution id="5c61f2a1-0d1c-4104-9868-a4188b306f1a" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.LinkedListQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="NonEmptyQueueReadsNotEmptyTest" />
+    </UnitTest>
+    <UnitTest name="ConstructorCreatesEmptyQueueTest" storage="queuetests.dll" id="1cb0a1e2-2261-0d1a-ef0f-bcef8b0ea15f">
+      <Execution id="1bd76cc8-91d4-4676-b2c8-6f86c5719e5b" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.ArrayQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="ConstructorCreatesEmptyQueueTest" />
+    </UnitTest>
+    <UnitTest name="EnqueueToFullQueueThrowsQueueFullExceptionTest" storage="queuetests.dll" id="7c46bf1f-4cc7-0ba7-67e8-52f5cd3c9713">
+      <Execution id="bfd10a31-c527-414b-b0f4-4176d509bcf0" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.ArrayQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="EnqueueToFullQueueThrowsQueueFullExceptionTest" />
+    </UnitTest>
+    <UnitTest name="ConstructorCreatesEmptyQueueTest" storage="queuetests.dll" id="13d9bdf6-60d6-7932-e7f8-0dff2188658f">
+      <Execution id="1be39848-52eb-4521-8d0c-f9fa944309cd" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.DequeTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="ConstructorCreatesEmptyQueueTest" />
+    </UnitTest>
+    <UnitTest name="NonEmptyQueueWrittenFromFrontReadsNotEmptyTest" storage="queuetests.dll" id="a8009935-515f-8ff9-6f0b-05a4894bf174">
+      <Execution id="46e56a05-1918-46e3-8965-219b5e6986e7" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.DequeTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="NonEmptyQueueWrittenFromFrontReadsNotEmptyTest" />
+    </UnitTest>
+    <UnitTest name="DataOrderPreservedTest" storage="queuetests.dll" id="373800ba-b828-3141-13f3-14ad92fca915">
+      <Execution id="ca7e176b-640d-41b9-9495-f965d0357130" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.LinkedListQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="DataOrderPreservedTest" />
+    </UnitTest>
+    <UnitTest name="DataOrderPreservedTest" storage="queuetests.dll" id="f013084a-d4ea-a9f8-357a-4047b1176ab2">
+      <Execution id="ab89990d-eda8-4a70-bcab-ebc1d442a9ab" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.ArrayQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="DataOrderPreservedTest" />
+    </UnitTest>
+    <UnitTest name="RemoveFrontOnEmptyQueueThrowsQueueEmptyExceptionTest" storage="queuetests.dll" id="03a1b3a6-dd92-af83-792a-b3caa1cfc64e">
+      <Execution id="f74ad160-ea55-4277-931f-67d93a675e8d" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.DequeTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="RemoveFrontOnEmptyQueueThrowsQueueEmptyExceptionTest" />
+    </UnitTest>
+    <UnitTest name="DequeueOnEmptyQueueThrowsQueueEmptyExceptionTest" storage="queuetests.dll" id="282e02e9-49c3-e1d4-f2ea-59cee629a781">
+      <Execution id="914bc40b-44f9-45d5-8361-e47397f2ddcf" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.ArrayQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="DequeueOnEmptyQueueThrowsQueueEmptyExceptionTest" />
+    </UnitTest>
+    <UnitTest name="ConstructorCreatesNonFullQueueTest" storage="queuetests.dll" id="3d821c1f-4535-cc22-0441-2178d0438ec5">
+      <Execution id="f8e2ca9b-a13f-42be-b529-527490013a39" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.LinkedListQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="ConstructorCreatesNonFullQueueTest" />
+    </UnitTest>
+    <UnitTest name="CountTest" storage="queuetests.dll" id="97365ef3-436d-9c9d-7432-5e36bdfa5b17">
+      <Execution id="2dd654ce-5232-446d-8cf1-d014e08e915e" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.LinkedListQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="CountTest" />
+    </UnitTest>
+    <UnitTest name="ConstructorCreatesEmptyQueueTest" storage="queuetests.dll" id="fd6c20eb-525d-6a10-f7aa-e03ceedfe16f">
+      <Execution id="1347f62f-bf7f-47a7-8487-5b39bc14b4c6" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.LinkedListQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="ConstructorCreatesEmptyQueueTest" />
+    </UnitTest>
+    <UnitTest name="NonEmptyQueueReadsNotEmptyTest" storage="queuetests.dll" id="49e4a240-89e9-7d60-9a13-7ab7ec646d86">
+      <Execution id="5901b206-cbd1-478e-97d4-0dc1912b966d" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.DequeTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="NonEmptyQueueReadsNotEmptyTest" />
+    </UnitTest>
+    <UnitTest name="DataOrderPreservedWrittenEndwardTest" storage="queuetests.dll" id="066e5acd-d732-0380-d030-80aabd1a46ae">
+      <Execution id="f1e9a2da-fcee-4faa-b50c-76230b6be5c6" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.DequeTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="DataOrderPreservedWrittenEndwardTest" />
+    </UnitTest>
+    <UnitTest name="DequeueOnEmptyQueueThrowsQueueEmptyExceptionTest" storage="queuetests.dll" id="72df603b-478e-691e-c9b9-cdc0bacfe212">
+      <Execution id="26af58d3-5129-43a5-9bf4-70cbd1296ce0" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.LinkedListQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="DequeueOnEmptyQueueThrowsQueueEmptyExceptionTest" />
+    </UnitTest>
+    <UnitTest name="RemoveEndOnEmptyQueueThrowsQueueEmptyExceptionTest" storage="queuetests.dll" id="7d7af601-d5b8-8473-4e8c-1728efc4ea22">
+      <Execution id="89b79593-9a74-4dbc-b5b2-c273a09831f9" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.DequeTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="RemoveEndOnEmptyQueueThrowsQueueEmptyExceptionTest" />
+    </UnitTest>
+    <UnitTest name="DataOrderPreservedTest" storage="queuetests.dll" id="cbfdef17-e7f3-e7a4-92ed-bd0caaf2671c">
+      <Execution id="08ed7e28-a555-45fb-bcb7-999024dc43ce" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.DequeTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="DataOrderPreservedTest" />
+    </UnitTest>
+    <UnitTest name="CountTest" storage="queuetests.dll" id="043f3c5a-7887-abdc-d249-173d4b7b8591">
+      <Execution id="32f9ab47-8f59-4ca0-80e3-18cedec68025" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.ArrayQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="CountTest" />
+    </UnitTest>
+    <UnitTest name="CountTest" storage="queuetests.dll" id="10d73257-6859-e940-a43d-85dc5f42184c">
+      <Execution id="1d8678e2-b630-4a80-9563-a07f6492f54f" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.DequeTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="CountTest" />
+    </UnitTest>
+    <UnitTest name="ConstructorCreatesNonFullQueueTest" storage="queuetests.dll" id="1fd90ceb-f0d0-1e68-b554-ad1d4ba25e72">
+      <Execution id="daf5818a-ab2d-4bab-a5b5-483373e9409d" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.ArrayQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="ConstructorCreatesNonFullQueueTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Resultados que no están en la lista" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Todos los resultados cargados" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="1cb0a1e2-2261-0d1a-ef0f-bcef8b0ea15f" executionId="1bd76cc8-91d4-4676-b2c8-6f86c5719e5b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1fd90ceb-f0d0-1e68-b554-ad1d4ba25e72" executionId="daf5818a-ab2d-4bab-a5b5-483373e9409d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="043f3c5a-7887-abdc-d249-173d4b7b8591" executionId="32f9ab47-8f59-4ca0-80e3-18cedec68025" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f013084a-d4ea-a9f8-357a-4047b1176ab2" executionId="ab89990d-eda8-4a70-bcab-ebc1d442a9ab" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="282e02e9-49c3-e1d4-f2ea-59cee629a781" executionId="914bc40b-44f9-45d5-8361-e47397f2ddcf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7c46bf1f-4cc7-0ba7-67e8-52f5cd3c9713" executionId="bfd10a31-c527-414b-b0f4-4176d509bcf0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="13d9bdf6-60d6-7932-e7f8-0dff2188658f" executionId="1be39848-52eb-4521-8d0c-f9fa944309cd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="10d73257-6859-e940-a43d-85dc5f42184c" executionId="1d8678e2-b630-4a80-9563-a07f6492f54f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cbfdef17-e7f3-e7a4-92ed-bd0caaf2671c" executionId="08ed7e28-a555-45fb-bcb7-999024dc43ce" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="066e5acd-d732-0380-d030-80aabd1a46ae" executionId="f1e9a2da-fcee-4faa-b50c-76230b6be5c6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="49e4a240-89e9-7d60-9a13-7ab7ec646d86" executionId="5901b206-cbd1-478e-97d4-0dc1912b966d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a8009935-515f-8ff9-6f0b-05a4894bf174" executionId="46e56a05-1918-46e3-8965-219b5e6986e7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7d7af601-d5b8-8473-4e8c-1728efc4ea22" executionId="89b79593-9a74-4dbc-b5b2-c273a09831f9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="03a1b3a6-dd92-af83-792a-b3caa1cfc64e" executionId="f74ad160-ea55-4277-931f-67d93a675e8d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fd6c20eb-525d-6a10-f7aa-e03ceedfe16f" executionId="1347f62f-bf7f-47a7-8487-5b39bc14b4c6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3d821c1f-4535-cc22-0441-2178d0438ec5" executionId="f8e2ca9b-a13f-42be-b529-527490013a39" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="97365ef3-436d-9c9d-7432-5e36bdfa5b17" executionId="2dd654ce-5232-446d-8cf1-d014e08e915e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="373800ba-b828-3141-13f3-14ad92fca915" executionId="ca7e176b-640d-41b9-9495-f965d0357130" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="72df603b-478e-691e-c9b9-cdc0bacfe212" executionId="26af58d3-5129-43a5-9bf4-70cbd1296ce0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="091f89d3-0ed1-30d7-5c4b-fdd3fa0faa90" executionId="5c61f2a1-0d1c-4104-9868-a4188b306f1a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="1bd76cc8-91d4-4676-b2c8-6f86c5719e5b" testId="1cb0a1e2-2261-0d1a-ef0f-bcef8b0ea15f" testName="ConstructorCreatesEmptyQueueTest" computerName="STOVE-MASTER" duration="00:00:00.0270675" startTime="2018-05-03T21:54:22.9556422-05:00" endTime="2018-05-03T21:54:23.2741532-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1bd76cc8-91d4-4676-b2c8-6f86c5719e5b">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.ArrayQueueTest.ConstructorCreatesEmptyQueueTest produjo la excepción: 
+System.IO.FileNotFoundException: No se puede cargar el archivo o ensamblado 'Assignment1, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null' ni una de sus dependencias. El sistema no puede encontrar el archivo especificado.AVS: El registro del enlace de ensamblado está desactivado.
+Para habilitar el registro de errores del enlace de ensamblado, establezca el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) como 1.
+Nota: existe una disminución del rendimiento asociada registro de errores del enlace de ensamblado.
+Para desactivar esta característica, elimine el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog].
+</Message>
+          <StackTrace>    en QueueTests.ArrayQueueTest.ConstructorCreatesEmptyQueueTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="daf5818a-ab2d-4bab-a5b5-483373e9409d" testId="1fd90ceb-f0d0-1e68-b554-ad1d4ba25e72" testName="ConstructorCreatesNonFullQueueTest" computerName="STOVE-MASTER" duration="00:00:00.0020236" startTime="2018-05-03T21:54:23.2787615-05:00" endTime="2018-05-03T21:54:23.2826364-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="daf5818a-ab2d-4bab-a5b5-483373e9409d">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.ArrayQueueTest.ConstructorCreatesNonFullQueueTest produjo la excepción: 
+System.IO.FileNotFoundException: No se puede cargar el archivo o ensamblado 'Assignment1, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null' ni una de sus dependencias. El sistema no puede encontrar el archivo especificado.AVS: El registro del enlace de ensamblado está desactivado.
+Para habilitar el registro de errores del enlace de ensamblado, establezca el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) como 1.
+Nota: existe una disminución del rendimiento asociada registro de errores del enlace de ensamblado.
+Para desactivar esta característica, elimine el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog].
+</Message>
+          <StackTrace>    en QueueTests.ArrayQueueTest.ConstructorCreatesNonFullQueueTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="32f9ab47-8f59-4ca0-80e3-18cedec68025" testId="043f3c5a-7887-abdc-d249-173d4b7b8591" testName="CountTest" computerName="STOVE-MASTER" duration="00:00:00.0018434" startTime="2018-05-03T21:54:23.2881510-05:00" endTime="2018-05-03T21:54:23.2921923-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="32f9ab47-8f59-4ca0-80e3-18cedec68025">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.ArrayQueueTest.CountTest produjo la excepción: 
+System.IO.FileNotFoundException: No se puede cargar el archivo o ensamblado 'Assignment1, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null' ni una de sus dependencias. El sistema no puede encontrar el archivo especificado.AVS: El registro del enlace de ensamblado está desactivado.
+Para habilitar el registro de errores del enlace de ensamblado, establezca el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) como 1.
+Nota: existe una disminución del rendimiento asociada registro de errores del enlace de ensamblado.
+Para desactivar esta característica, elimine el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog].
+</Message>
+          <StackTrace>    en QueueTests.ArrayQueueTest.CountTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="ab89990d-eda8-4a70-bcab-ebc1d442a9ab" testId="f013084a-d4ea-a9f8-357a-4047b1176ab2" testName="DataOrderPreservedTest" computerName="STOVE-MASTER" duration="00:00:00.0019580" startTime="2018-05-03T21:54:23.2976762-05:00" endTime="2018-05-03T21:54:23.3016865-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ab89990d-eda8-4a70-bcab-ebc1d442a9ab">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.ArrayQueueTest.DataOrderPreservedTest produjo la excepción: 
+System.IO.FileNotFoundException: No se puede cargar el archivo o ensamblado 'Assignment1, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null' ni una de sus dependencias. El sistema no puede encontrar el archivo especificado.AVS: El registro del enlace de ensamblado está desactivado.
+Para habilitar el registro de errores del enlace de ensamblado, establezca el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) como 1.
+Nota: existe una disminución del rendimiento asociada registro de errores del enlace de ensamblado.
+Para desactivar esta característica, elimine el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog].
+</Message>
+          <StackTrace>    en QueueTests.ArrayQueueTest.DataOrderPreservedTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="914bc40b-44f9-45d5-8361-e47397f2ddcf" testId="282e02e9-49c3-e1d4-f2ea-59cee629a781" testName="DequeueOnEmptyQueueThrowsQueueEmptyExceptionTest" computerName="STOVE-MASTER" startTime="2018-05-03T21:54:23.3061993-05:00" endTime="2018-05-03T21:54:23.3087054-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="914bc40b-44f9-45d5-8361-e47397f2ddcf">
+      <Output>
+        <ErrorInfo>
+          <Message>El atributo ExpectedException definido en el método de prueba QueueTests.ArrayQueueTest.DequeueOnEmptyQueueThrowsQueueEmptyExceptionTest inició una excepción durante la construcción.
+System.IO.FileNotFoundException: No se puede cargar el archivo o ensamblado 'Assignment1, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null' ni una de sus dependencias. El sistema no puede encontrar el archivo especificado.AVS: El registro del enlace de ensamblado está desactivado.
+Para habilitar el registro de errores del enlace de ensamblado, establezca el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) como 1.
+Nota: existe una disminución del rendimiento asociada registro de errores del enlace de ensamblado.
+Para desactivar esta característica, elimine el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog].
+</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="bfd10a31-c527-414b-b0f4-4176d509bcf0" testId="7c46bf1f-4cc7-0ba7-67e8-52f5cd3c9713" testName="EnqueueToFullQueueThrowsQueueFullExceptionTest" computerName="STOVE-MASTER" startTime="2018-05-03T21:54:23.3128014-05:00" endTime="2018-05-03T21:54:23.3147214-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bfd10a31-c527-414b-b0f4-4176d509bcf0">
+      <Output>
+        <ErrorInfo>
+          <Message>El atributo ExpectedException definido en el método de prueba QueueTests.ArrayQueueTest.EnqueueToFullQueueThrowsQueueFullExceptionTest inició una excepción durante la construcción.
+System.IO.FileNotFoundException: No se puede cargar el archivo o ensamblado 'Assignment1, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null' ni una de sus dependencias. El sistema no puede encontrar el archivo especificado.AVS: El registro del enlace de ensamblado está desactivado.
+Para habilitar el registro de errores del enlace de ensamblado, establezca el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) como 1.
+Nota: existe una disminución del rendimiento asociada registro de errores del enlace de ensamblado.
+Para desactivar esta característica, elimine el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog].
+</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="1be39848-52eb-4521-8d0c-f9fa944309cd" testId="13d9bdf6-60d6-7932-e7f8-0dff2188658f" testName="ConstructorCreatesEmptyQueueTest" computerName="STOVE-MASTER" duration="00:00:00.0014094" startTime="2018-05-03T21:54:23.3187331-05:00" endTime="2018-05-03T21:54:23.3242477-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1be39848-52eb-4521-8d0c-f9fa944309cd">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.DequeTest.ConstructorCreatesEmptyQueueTest produjo la excepción: 
+System.IO.FileNotFoundException: No se puede cargar el archivo o ensamblado 'Assignment1, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null' ni una de sus dependencias. El sistema no puede encontrar el archivo especificado.AVS: El registro del enlace de ensamblado está desactivado.
+Para habilitar el registro de errores del enlace de ensamblado, establezca el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) como 1.
+Nota: existe una disminución del rendimiento asociada registro de errores del enlace de ensamblado.
+Para desactivar esta característica, elimine el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog].
+</Message>
+          <StackTrace>    en QueueTests.DequeTest.ConstructorCreatesEmptyQueueTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="1d8678e2-b630-4a80-9563-a07f6492f54f" testId="10d73257-6859-e940-a43d-85dc5f42184c" testName="CountTest" computerName="STOVE-MASTER" duration="00:00:00.0012302" startTime="2018-05-03T21:54:23.3282587-05:00" endTime="2018-05-03T21:54:23.3307947-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1d8678e2-b630-4a80-9563-a07f6492f54f">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.DequeTest.CountTest produjo la excepción: 
+System.IO.FileNotFoundException: No se puede cargar el archivo o ensamblado 'Assignment1, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null' ni una de sus dependencias. El sistema no puede encontrar el archivo especificado.AVS: El registro del enlace de ensamblado está desactivado.
+Para habilitar el registro de errores del enlace de ensamblado, establezca el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) como 1.
+Nota: existe una disminución del rendimiento asociada registro de errores del enlace de ensamblado.
+Para desactivar esta característica, elimine el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog].
+</Message>
+          <StackTrace>    en QueueTests.DequeTest.CountTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="08ed7e28-a555-45fb-bcb7-999024dc43ce" testId="cbfdef17-e7f3-e7a4-92ed-bd0caaf2671c" testName="DataOrderPreservedTest" computerName="STOVE-MASTER" duration="00:00:00.0012514" startTime="2018-05-03T21:54:23.3347743-05:00" endTime="2018-05-03T21:54:23.3372814-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="08ed7e28-a555-45fb-bcb7-999024dc43ce">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.DequeTest.DataOrderPreservedTest produjo la excepción: 
+System.IO.FileNotFoundException: No se puede cargar el archivo o ensamblado 'Assignment1, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null' ni una de sus dependencias. El sistema no puede encontrar el archivo especificado.AVS: El registro del enlace de ensamblado está desactivado.
+Para habilitar el registro de errores del enlace de ensamblado, establezca el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) como 1.
+Nota: existe una disminución del rendimiento asociada registro de errores del enlace de ensamblado.
+Para desactivar esta característica, elimine el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog].
+</Message>
+          <StackTrace>    en QueueTests.DequeTest.DataOrderPreservedTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="f1e9a2da-fcee-4faa-b50c-76230b6be5c6" testId="066e5acd-d732-0380-d030-80aabd1a46ae" testName="DataOrderPreservedWrittenEndwardTest" computerName="STOVE-MASTER" duration="00:00:00.0012302" startTime="2018-05-03T21:54:23.3413291-05:00" endTime="2018-05-03T21:54:23.3437988-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f1e9a2da-fcee-4faa-b50c-76230b6be5c6">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.DequeTest.DataOrderPreservedWrittenEndwardTest produjo la excepción: 
+System.IO.FileNotFoundException: No se puede cargar el archivo o ensamblado 'Assignment1, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null' ni una de sus dependencias. El sistema no puede encontrar el archivo especificado.AVS: El registro del enlace de ensamblado está desactivado.
+Para habilitar el registro de errores del enlace de ensamblado, establezca el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) como 1.
+Nota: existe una disminución del rendimiento asociada registro de errores del enlace de ensamblado.
+Para desactivar esta característica, elimine el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog].
+</Message>
+          <StackTrace>    en QueueTests.DequeTest.DataOrderPreservedWrittenEndwardTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="5901b206-cbd1-478e-97d4-0dc1912b966d" testId="49e4a240-89e9-7d60-9a13-7ab7ec646d86" testName="NonEmptyQueueReadsNotEmptyTest" computerName="STOVE-MASTER" duration="00:00:00.0012331" startTime="2018-05-03T21:54:23.3473088-05:00" endTime="2018-05-03T21:54:23.3498148-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5901b206-cbd1-478e-97d4-0dc1912b966d">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.DequeTest.NonEmptyQueueReadsNotEmptyTest produjo la excepción: 
+System.IO.FileNotFoundException: No se puede cargar el archivo o ensamblado 'Assignment1, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null' ni una de sus dependencias. El sistema no puede encontrar el archivo especificado.AVS: El registro del enlace de ensamblado está desactivado.
+Para habilitar el registro de errores del enlace de ensamblado, establezca el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) como 1.
+Nota: existe una disminución del rendimiento asociada registro de errores del enlace de ensamblado.
+Para desactivar esta característica, elimine el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog].
+</Message>
+          <StackTrace>    en QueueTests.DequeTest.NonEmptyQueueReadsNotEmptyTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="46e56a05-1918-46e3-8965-219b5e6986e7" testId="a8009935-515f-8ff9-6f0b-05a4894bf174" testName="NonEmptyQueueWrittenFromFrontReadsNotEmptyTest" computerName="STOVE-MASTER" duration="00:00:00.0012211" startTime="2018-05-03T21:54:23.3538266-05:00" endTime="2018-05-03T21:54:23.3563323-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="46e56a05-1918-46e3-8965-219b5e6986e7">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.DequeTest.NonEmptyQueueWrittenFromFrontReadsNotEmptyTest produjo la excepción: 
+System.IO.FileNotFoundException: No se puede cargar el archivo o ensamblado 'Assignment1, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null' ni una de sus dependencias. El sistema no puede encontrar el archivo especificado.AVS: El registro del enlace de ensamblado está desactivado.
+Para habilitar el registro de errores del enlace de ensamblado, establezca el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) como 1.
+Nota: existe una disminución del rendimiento asociada registro de errores del enlace de ensamblado.
+Para desactivar esta característica, elimine el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog].
+</Message>
+          <StackTrace>    en QueueTests.DequeTest.NonEmptyQueueWrittenFromFrontReadsNotEmptyTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="89b79593-9a74-4dbc-b5b2-c273a09831f9" testId="7d7af601-d5b8-8473-4e8c-1728efc4ea22" testName="RemoveEndOnEmptyQueueThrowsQueueEmptyExceptionTest" computerName="STOVE-MASTER" startTime="2018-05-03T21:54:23.3603426-05:00" endTime="2018-05-03T21:54:23.3623483-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="89b79593-9a74-4dbc-b5b2-c273a09831f9">
+      <Output>
+        <ErrorInfo>
+          <Message>El atributo ExpectedException definido en el método de prueba QueueTests.DequeTest.RemoveEndOnEmptyQueueThrowsQueueEmptyExceptionTest inició una excepción durante la construcción.
+System.IO.FileNotFoundException: No se puede cargar el archivo o ensamblado 'Assignment1, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null' ni una de sus dependencias. El sistema no puede encontrar el archivo especificado.AVS: El registro del enlace de ensamblado está desactivado.
+Para habilitar el registro de errores del enlace de ensamblado, establezca el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) como 1.
+Nota: existe una disminución del rendimiento asociada registro de errores del enlace de ensamblado.
+Para desactivar esta característica, elimine el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog].
+</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="f74ad160-ea55-4277-931f-67d93a675e8d" testId="03a1b3a6-dd92-af83-792a-b3caa1cfc64e" testName="RemoveFrontOnEmptyQueueThrowsQueueEmptyExceptionTest" computerName="STOVE-MASTER" startTime="2018-05-03T21:54:23.3658578-05:00" endTime="2018-05-03T21:54:23.3678628-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f74ad160-ea55-4277-931f-67d93a675e8d">
+      <Output>
+        <ErrorInfo>
+          <Message>El atributo ExpectedException definido en el método de prueba QueueTests.DequeTest.RemoveFrontOnEmptyQueueThrowsQueueEmptyExceptionTest inició una excepción durante la construcción.
+System.IO.FileNotFoundException: No se puede cargar el archivo o ensamblado 'Assignment1, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null' ni una de sus dependencias. El sistema no puede encontrar el archivo especificado.AVS: El registro del enlace de ensamblado está desactivado.
+Para habilitar el registro de errores del enlace de ensamblado, establezca el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) como 1.
+Nota: existe una disminución del rendimiento asociada registro de errores del enlace de ensamblado.
+Para desactivar esta característica, elimine el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog].
+</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="1347f62f-bf7f-47a7-8487-5b39bc14b4c6" testId="fd6c20eb-525d-6a10-f7aa-e03ceedfe16f" testName="ConstructorCreatesEmptyQueueTest" computerName="STOVE-MASTER" duration="00:00:00.0013142" startTime="2018-05-03T21:54:23.3714052-05:00" endTime="2018-05-03T21:54:23.3743799-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1347f62f-bf7f-47a7-8487-5b39bc14b4c6">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.LinkedListQueueTest.ConstructorCreatesEmptyQueueTest produjo la excepción: 
+System.IO.FileNotFoundException: No se puede cargar el archivo o ensamblado 'Assignment1, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null' ni una de sus dependencias. El sistema no puede encontrar el archivo especificado.AVS: El registro del enlace de ensamblado está desactivado.
+Para habilitar el registro de errores del enlace de ensamblado, establezca el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) como 1.
+Nota: existe una disminución del rendimiento asociada registro de errores del enlace de ensamblado.
+Para desactivar esta característica, elimine el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog].
+</Message>
+          <StackTrace>    en QueueTests.LinkedListQueueTest.ConstructorCreatesEmptyQueueTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="f8e2ca9b-a13f-42be-b529-527490013a39" testId="3d821c1f-4535-cc22-0441-2178d0438ec5" testName="ConstructorCreatesNonFullQueueTest" computerName="STOVE-MASTER" duration="00:00:00.0012546" startTime="2018-05-03T21:54:23.3778902-05:00" endTime="2018-05-03T21:54:23.3803959-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f8e2ca9b-a13f-42be-b529-527490013a39">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.LinkedListQueueTest.ConstructorCreatesNonFullQueueTest produjo la excepción: 
+System.IO.FileNotFoundException: No se puede cargar el archivo o ensamblado 'Assignment1, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null' ni una de sus dependencias. El sistema no puede encontrar el archivo especificado.AVS: El registro del enlace de ensamblado está desactivado.
+Para habilitar el registro de errores del enlace de ensamblado, establezca el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) como 1.
+Nota: existe una disminución del rendimiento asociada registro de errores del enlace de ensamblado.
+Para desactivar esta característica, elimine el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog].
+</Message>
+          <StackTrace>    en QueueTests.LinkedListQueueTest.ConstructorCreatesNonFullQueueTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="2dd654ce-5232-446d-8cf1-d014e08e915e" testId="97365ef3-436d-9c9d-7432-5e36bdfa5b17" testName="CountTest" computerName="STOVE-MASTER" duration="00:00:00.0012172" startTime="2018-05-03T21:54:23.3844968-05:00" endTime="2018-05-03T21:54:23.3869137-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2dd654ce-5232-446d-8cf1-d014e08e915e">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.LinkedListQueueTest.CountTest produjo la excepción: 
+System.IO.FileNotFoundException: No se puede cargar el archivo o ensamblado 'Assignment1, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null' ni una de sus dependencias. El sistema no puede encontrar el archivo especificado.AVS: El registro del enlace de ensamblado está desactivado.
+Para habilitar el registro de errores del enlace de ensamblado, establezca el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) como 1.
+Nota: existe una disminución del rendimiento asociada registro de errores del enlace de ensamblado.
+Para desactivar esta característica, elimine el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog].
+</Message>
+          <StackTrace>    en QueueTests.LinkedListQueueTest.CountTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="ca7e176b-640d-41b9-9495-f965d0357130" testId="373800ba-b828-3141-13f3-14ad92fca915" testName="DataOrderPreservedTest" computerName="STOVE-MASTER" duration="00:00:00.0012665" startTime="2018-05-03T21:54:23.3909247-05:00" endTime="2018-05-03T21:54:23.3935411-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ca7e176b-640d-41b9-9495-f965d0357130">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.LinkedListQueueTest.DataOrderPreservedTest produjo la excepción: 
+System.IO.FileNotFoundException: No se puede cargar el archivo o ensamblado 'Assignment1, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null' ni una de sus dependencias. El sistema no puede encontrar el archivo especificado.AVS: El registro del enlace de ensamblado está desactivado.
+Para habilitar el registro de errores del enlace de ensamblado, establezca el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) como 1.
+Nota: existe una disminución del rendimiento asociada registro de errores del enlace de ensamblado.
+Para desactivar esta característica, elimine el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog].
+</Message>
+          <StackTrace>    en QueueTests.LinkedListQueueTest.DataOrderPreservedTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="26af58d3-5129-43a5-9bf4-70cbd1296ce0" testId="72df603b-478e-691e-c9b9-cdc0bacfe212" testName="DequeueOnEmptyQueueThrowsQueueEmptyExceptionTest" computerName="STOVE-MASTER" startTime="2018-05-03T21:54:23.3969657-05:00" endTime="2018-05-03T21:54:23.3989460-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="26af58d3-5129-43a5-9bf4-70cbd1296ce0">
+      <Output>
+        <ErrorInfo>
+          <Message>El atributo ExpectedException definido en el método de prueba QueueTests.LinkedListQueueTest.DequeueOnEmptyQueueThrowsQueueEmptyExceptionTest inició una excepción durante la construcción.
+System.IO.FileNotFoundException: No se puede cargar el archivo o ensamblado 'Assignment1, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null' ni una de sus dependencias. El sistema no puede encontrar el archivo especificado.AVS: El registro del enlace de ensamblado está desactivado.
+Para habilitar el registro de errores del enlace de ensamblado, establezca el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) como 1.
+Nota: existe una disminución del rendimiento asociada registro de errores del enlace de ensamblado.
+Para desactivar esta característica, elimine el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog].
+</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="5c61f2a1-0d1c-4104-9868-a4188b306f1a" testId="091f89d3-0ed1-30d7-5c4b-fdd3fa0faa90" testName="NonEmptyQueueReadsNotEmptyTest" computerName="STOVE-MASTER" duration="00:00:00.0013011" startTime="2018-05-03T21:54:23.4030512-05:00" endTime="2018-05-03T21:54:23.4054627-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5c61f2a1-0d1c-4104-9868-a4188b306f1a">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.LinkedListQueueTest.NonEmptyQueueReadsNotEmptyTest produjo la excepción: 
+System.IO.FileNotFoundException: No se puede cargar el archivo o ensamblado 'Assignment1, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null' ni una de sus dependencias. El sistema no puede encontrar el archivo especificado.AVS: El registro del enlace de ensamblado está desactivado.
+Para habilitar el registro de errores del enlace de ensamblado, establezca el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) como 1.
+Nota: existe una disminución del rendimiento asociada registro de errores del enlace de ensamblado.
+Para desactivar esta característica, elimine el valor de Registro [HKLM\Software\Microsoft\Fusion!EnableLog].
+</Message>
+          <StackTrace>    en QueueTests.LinkedListQueueTest.NonEmptyQueueReadsNotEmptyTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

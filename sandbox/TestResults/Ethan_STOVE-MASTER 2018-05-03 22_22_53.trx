@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="e8a9707c-0ad4-4101-94fe-6b6fcba286ca" name="Ethan@STOVE-MASTER 2018-05-03 22:22:53" runUser="STOVE-MASTER\Ethan" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Configuración de pruebas predeterminada" id="d1562962-9e01-4365-a284-35f7b3711357">
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+    <Deployment runDeploymentRoot="Ethan_STOVE-MASTER 2018-05-03 22_22_53" />
+    <Properties />
+  </TestSettings>
+  <Times creation="2018-05-03T22:22:53.4386975-05:00" queuing="2018-05-03T22:22:53.7535011-05:00" start="2018-05-03T22:22:53.8251923-05:00" finish="2018-05-03T22:22:56.0882719-05:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="20" executed="20" passed="20" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="NonEmptyQueueReadsNotEmptyTest" storage="queuetests.dll" id="091f89d3-0ed1-30d7-5c4b-fdd3fa0faa90">
+      <Execution id="196d6dda-9496-4be2-89ea-df10e712cfa1" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.LinkedListQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="NonEmptyQueueReadsNotEmptyTest" />
+    </UnitTest>
+    <UnitTest name="ConstructorCreatesEmptyQueueTest" storage="queuetests.dll" id="1cb0a1e2-2261-0d1a-ef0f-bcef8b0ea15f">
+      <Execution id="c19836f3-50c7-4962-a083-4b2d6c430634" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.ArrayQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="ConstructorCreatesEmptyQueueTest" />
+    </UnitTest>
+    <UnitTest name="EnqueueToFullQueueThrowsQueueFullExceptionTest" storage="queuetests.dll" id="7c46bf1f-4cc7-0ba7-67e8-52f5cd3c9713">
+      <Execution id="4aac666b-e6e5-4a88-ab29-76fda9f66401" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.ArrayQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="EnqueueToFullQueueThrowsQueueFullExceptionTest" />
+    </UnitTest>
+    <UnitTest name="ConstructorCreatesEmptyQueueTest" storage="queuetests.dll" id="13d9bdf6-60d6-7932-e7f8-0dff2188658f">
+      <Execution id="6e045004-bae6-4908-a8e3-bfe802941e38" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.DequeTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="ConstructorCreatesEmptyQueueTest" />
+    </UnitTest>
+    <UnitTest name="NonEmptyQueueWrittenFromFrontReadsNotEmptyTest" storage="queuetests.dll" id="a8009935-515f-8ff9-6f0b-05a4894bf174">
+      <Execution id="8b9229a8-965c-4c99-8d28-8c39566d4be6" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.DequeTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="NonEmptyQueueWrittenFromFrontReadsNotEmptyTest" />
+    </UnitTest>
+    <UnitTest name="DataOrderPreservedTest" storage="queuetests.dll" id="373800ba-b828-3141-13f3-14ad92fca915">
+      <Execution id="93233915-4e53-45c4-99a1-448b45c665b5" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.LinkedListQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="DataOrderPreservedTest" />
+    </UnitTest>
+    <UnitTest name="DataOrderPreservedTest" storage="queuetests.dll" id="f013084a-d4ea-a9f8-357a-4047b1176ab2">
+      <Execution id="b7e6c832-1628-4b4b-9a38-fb298a76ecf0" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.ArrayQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="DataOrderPreservedTest" />
+    </UnitTest>
+    <UnitTest name="RemoveFrontOnEmptyQueueThrowsQueueEmptyExceptionTest" storage="queuetests.dll" id="03a1b3a6-dd92-af83-792a-b3caa1cfc64e">
+      <Execution id="6b160d9d-57f5-4a4c-b9ee-b8c6b76ef940" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.DequeTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="RemoveFrontOnEmptyQueueThrowsQueueEmptyExceptionTest" />
+    </UnitTest>
+    <UnitTest name="DequeueOnEmptyQueueThrowsQueueEmptyExceptionTest" storage="queuetests.dll" id="282e02e9-49c3-e1d4-f2ea-59cee629a781">
+      <Execution id="16f1a7e4-0cfa-44f5-9d84-61f055e2e0cf" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.ArrayQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="DequeueOnEmptyQueueThrowsQueueEmptyExceptionTest" />
+    </UnitTest>
+    <UnitTest name="ConstructorCreatesNonFullQueueTest" storage="queuetests.dll" id="3d821c1f-4535-cc22-0441-2178d0438ec5">
+      <Execution id="171ad8c2-128a-4f65-ad7b-2dd87d56f573" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.LinkedListQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="ConstructorCreatesNonFullQueueTest" />
+    </UnitTest>
+    <UnitTest name="CountTest" storage="queuetests.dll" id="97365ef3-436d-9c9d-7432-5e36bdfa5b17">
+      <Execution id="d7eee0d8-9c20-44ef-82ea-4ac505f9be1b" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.LinkedListQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="CountTest" />
+    </UnitTest>
+    <UnitTest name="ConstructorCreatesEmptyQueueTest" storage="queuetests.dll" id="fd6c20eb-525d-6a10-f7aa-e03ceedfe16f">
+      <Execution id="fcfcb9ea-2dbb-411e-8a25-b5896688fe23" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.LinkedListQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="ConstructorCreatesEmptyQueueTest" />
+    </UnitTest>
+    <UnitTest name="NonEmptyQueueReadsNotEmptyTest" storage="queuetests.dll" id="49e4a240-89e9-7d60-9a13-7ab7ec646d86">
+      <Execution id="b7d4bf02-eb72-4b5f-ae0c-8952c5f63ee4" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.DequeTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="NonEmptyQueueReadsNotEmptyTest" />
+    </UnitTest>
+    <UnitTest name="DataOrderPreservedWrittenEndwardTest" storage="queuetests.dll" id="066e5acd-d732-0380-d030-80aabd1a46ae">
+      <Execution id="9ef9caac-2986-40ef-99f0-6ce26f274b33" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.DequeTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="DataOrderPreservedWrittenEndwardTest" />
+    </UnitTest>
+    <UnitTest name="DequeueOnEmptyQueueThrowsQueueEmptyExceptionTest" storage="queuetests.dll" id="72df603b-478e-691e-c9b9-cdc0bacfe212">
+      <Execution id="33614cf2-0e40-43eb-a409-ceb9e74c0f78" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.LinkedListQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="DequeueOnEmptyQueueThrowsQueueEmptyExceptionTest" />
+    </UnitTest>
+    <UnitTest name="RemoveEndOnEmptyQueueThrowsQueueEmptyExceptionTest" storage="queuetests.dll" id="7d7af601-d5b8-8473-4e8c-1728efc4ea22">
+      <Execution id="67fd54ce-6a42-48ec-ba53-d10d9f3b5b85" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.DequeTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="RemoveEndOnEmptyQueueThrowsQueueEmptyExceptionTest" />
+    </UnitTest>
+    <UnitTest name="DataOrderPreservedTest" storage="queuetests.dll" id="cbfdef17-e7f3-e7a4-92ed-bd0caaf2671c">
+      <Execution id="2bde2b6f-0537-4b94-9422-bfe101aa2e7d" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.DequeTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="DataOrderPreservedTest" />
+    </UnitTest>
+    <UnitTest name="CountTest" storage="queuetests.dll" id="043f3c5a-7887-abdc-d249-173d4b7b8591">
+      <Execution id="b0092cd2-abd4-4f00-a01f-f74131cf07b5" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.ArrayQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="CountTest" />
+    </UnitTest>
+    <UnitTest name="CountTest" storage="queuetests.dll" id="10d73257-6859-e940-a43d-85dc5f42184c">
+      <Execution id="b09a5305-2dbd-4925-836a-5ace24e7e120" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.DequeTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="CountTest" />
+    </UnitTest>
+    <UnitTest name="ConstructorCreatesNonFullQueueTest" storage="queuetests.dll" id="1fd90ceb-f0d0-1e68-b554-ad1d4ba25e72">
+      <Execution id="3a0993e8-169e-40a0-8c81-dd544fd25447" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.ArrayQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="ConstructorCreatesNonFullQueueTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Resultados que no están en la lista" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Todos los resultados cargados" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="1cb0a1e2-2261-0d1a-ef0f-bcef8b0ea15f" executionId="c19836f3-50c7-4962-a083-4b2d6c430634" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1fd90ceb-f0d0-1e68-b554-ad1d4ba25e72" executionId="3a0993e8-169e-40a0-8c81-dd544fd25447" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="043f3c5a-7887-abdc-d249-173d4b7b8591" executionId="b0092cd2-abd4-4f00-a01f-f74131cf07b5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f013084a-d4ea-a9f8-357a-4047b1176ab2" executionId="b7e6c832-1628-4b4b-9a38-fb298a76ecf0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="282e02e9-49c3-e1d4-f2ea-59cee629a781" executionId="16f1a7e4-0cfa-44f5-9d84-61f055e2e0cf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7c46bf1f-4cc7-0ba7-67e8-52f5cd3c9713" executionId="4aac666b-e6e5-4a88-ab29-76fda9f66401" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="13d9bdf6-60d6-7932-e7f8-0dff2188658f" executionId="6e045004-bae6-4908-a8e3-bfe802941e38" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="10d73257-6859-e940-a43d-85dc5f42184c" executionId="b09a5305-2dbd-4925-836a-5ace24e7e120" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cbfdef17-e7f3-e7a4-92ed-bd0caaf2671c" executionId="2bde2b6f-0537-4b94-9422-bfe101aa2e7d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="066e5acd-d732-0380-d030-80aabd1a46ae" executionId="9ef9caac-2986-40ef-99f0-6ce26f274b33" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="49e4a240-89e9-7d60-9a13-7ab7ec646d86" executionId="b7d4bf02-eb72-4b5f-ae0c-8952c5f63ee4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a8009935-515f-8ff9-6f0b-05a4894bf174" executionId="8b9229a8-965c-4c99-8d28-8c39566d4be6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7d7af601-d5b8-8473-4e8c-1728efc4ea22" executionId="67fd54ce-6a42-48ec-ba53-d10d9f3b5b85" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="03a1b3a6-dd92-af83-792a-b3caa1cfc64e" executionId="6b160d9d-57f5-4a4c-b9ee-b8c6b76ef940" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fd6c20eb-525d-6a10-f7aa-e03ceedfe16f" executionId="fcfcb9ea-2dbb-411e-8a25-b5896688fe23" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3d821c1f-4535-cc22-0441-2178d0438ec5" executionId="171ad8c2-128a-4f65-ad7b-2dd87d56f573" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="97365ef3-436d-9c9d-7432-5e36bdfa5b17" executionId="d7eee0d8-9c20-44ef-82ea-4ac505f9be1b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="373800ba-b828-3141-13f3-14ad92fca915" executionId="93233915-4e53-45c4-99a1-448b45c665b5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="72df603b-478e-691e-c9b9-cdc0bacfe212" executionId="33614cf2-0e40-43eb-a409-ceb9e74c0f78" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="091f89d3-0ed1-30d7-5c4b-fdd3fa0faa90" executionId="196d6dda-9496-4be2-89ea-df10e712cfa1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="c19836f3-50c7-4962-a083-4b2d6c430634" testId="1cb0a1e2-2261-0d1a-ef0f-bcef8b0ea15f" testName="ConstructorCreatesEmptyQueueTest" computerName="STOVE-MASTER" duration="00:00:00.0091504" startTime="2018-05-03T22:22:53.9034013-05:00" endTime="2018-05-03T22:22:54.2007436-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c19836f3-50c7-4962-a083-4b2d6c430634">
+    </UnitTestResult>
+    <UnitTestResult executionId="3a0993e8-169e-40a0-8c81-dd544fd25447" testId="1fd90ceb-f0d0-1e68-b554-ad1d4ba25e72" testName="ConstructorCreatesNonFullQueueTest" computerName="STOVE-MASTER" duration="00:00:00.0003371" startTime="2018-05-03T22:22:54.2058030-05:00" endTime="2018-05-03T22:22:54.2084395-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3a0993e8-169e-40a0-8c81-dd544fd25447">
+    </UnitTestResult>
+    <UnitTestResult executionId="b0092cd2-abd4-4f00-a01f-f74131cf07b5" testId="043f3c5a-7887-abdc-d249-173d4b7b8591" testName="CountTest" computerName="STOVE-MASTER" duration="00:00:00.0020846" startTime="2018-05-03T22:22:54.2137926-05:00" endTime="2018-05-03T22:22:54.2177902-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b0092cd2-abd4-4f00-a01f-f74131cf07b5">
+    </UnitTestResult>
+    <UnitTestResult executionId="b7e6c832-1628-4b4b-9a38-fb298a76ecf0" testId="f013084a-d4ea-a9f8-357a-4047b1176ab2" testName="DataOrderPreservedTest" computerName="STOVE-MASTER" duration="00:00:00.0007408" startTime="2018-05-03T22:22:54.2233478-05:00" endTime="2018-05-03T22:22:54.2268133-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b7e6c832-1628-4b4b-9a38-fb298a76ecf0">
+    </UnitTestResult>
+    <UnitTestResult executionId="16f1a7e4-0cfa-44f5-9d84-61f055e2e0cf" testId="282e02e9-49c3-e1d4-f2ea-59cee629a781" testName="DequeueOnEmptyQueueThrowsQueueEmptyExceptionTest" computerName="STOVE-MASTER" duration="00:00:00.0067353" startTime="2018-05-03T22:22:54.2328289-05:00" endTime="2018-05-03T22:22:54.2408792-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="16f1a7e4-0cfa-44f5-9d84-61f055e2e0cf">
+    </UnitTestResult>
+    <UnitTestResult executionId="4aac666b-e6e5-4a88-ab29-76fda9f66401" testId="7c46bf1f-4cc7-0ba7-67e8-52f5cd3c9713" testName="EnqueueToFullQueueThrowsQueueFullExceptionTest" computerName="STOVE-MASTER" duration="00:00:00.0013459" startTime="2018-05-03T22:22:54.2468680-05:00" endTime="2018-05-03T22:22:54.2508794-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4aac666b-e6e5-4a88-ab29-76fda9f66401">
+    </UnitTestResult>
+    <UnitTestResult executionId="6e045004-bae6-4908-a8e3-bfe802941e38" testId="13d9bdf6-60d6-7932-e7f8-0dff2188658f" testName="ConstructorCreatesEmptyQueueTest" computerName="STOVE-MASTER" duration="00:00:00.0008357" startTime="2018-05-03T22:22:54.2565911-05:00" endTime="2018-05-03T22:22:54.2599011-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6e045004-bae6-4908-a8e3-bfe802941e38">
+    </UnitTestResult>
+    <UnitTestResult executionId="b09a5305-2dbd-4925-836a-5ace24e7e120" testId="10d73257-6859-e940-a43d-85dc5f42184c" testName="CountTest" computerName="STOVE-MASTER" duration="00:00:00.0914737" startTime="2018-05-03T22:22:54.2644142-05:00" endTime="2018-05-03T22:22:54.3578817-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b09a5305-2dbd-4925-836a-5ace24e7e120">
+    </UnitTestResult>
+    <UnitTestResult executionId="2bde2b6f-0537-4b94-9422-bfe101aa2e7d" testId="cbfdef17-e7f3-e7a4-92ed-bd0caaf2671c" testName="DataOrderPreservedTest" computerName="STOVE-MASTER" duration="00:00:00.0004273" startTime="2018-05-03T22:22:54.3636773-05:00" endTime="2018-05-03T22:22:54.3657126-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2bde2b6f-0537-4b94-9422-bfe101aa2e7d">
+    </UnitTestResult>
+    <UnitTestResult executionId="9ef9caac-2986-40ef-99f0-6ce26f274b33" testId="066e5acd-d732-0380-d030-80aabd1a46ae" testName="DataOrderPreservedWrittenEndwardTest" computerName="STOVE-MASTER" duration="00:00:00.0004256" startTime="2018-05-03T22:22:54.3696936-05:00" endTime="2018-05-03T22:22:54.3712261-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9ef9caac-2986-40ef-99f0-6ce26f274b33">
+    </UnitTestResult>
+    <UnitTestResult executionId="b7d4bf02-eb72-4b5f-ae0c-8952c5f63ee4" testId="49e4a240-89e9-7d60-9a13-7ab7ec646d86" testName="NonEmptyQueueReadsNotEmptyTest" computerName="STOVE-MASTER" duration="00:00:00.0365356" startTime="2018-05-03T22:22:54.3757089-05:00" endTime="2018-05-03T22:22:54.4138483-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b7d4bf02-eb72-4b5f-ae0c-8952c5f63ee4">
+    </UnitTestResult>
+    <UnitTestResult executionId="8b9229a8-965c-4c99-8d28-8c39566d4be6" testId="a8009935-515f-8ff9-6f0b-05a4894bf174" testName="NonEmptyQueueWrittenFromFrontReadsNotEmptyTest" computerName="STOVE-MASTER" duration="00:00:00.0879877" startTime="2018-05-03T22:22:54.4184859-05:00" endTime="2018-05-03T22:22:54.5080604-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8b9229a8-965c-4c99-8d28-8c39566d4be6">
+    </UnitTestResult>
+    <UnitTestResult executionId="67fd54ce-6a42-48ec-ba53-d10d9f3b5b85" testId="7d7af601-d5b8-8473-4e8c-1728efc4ea22" testName="RemoveEndOnEmptyQueueThrowsQueueEmptyExceptionTest" computerName="STOVE-MASTER" duration="00:00:00.0005712" startTime="2018-05-03T22:22:54.5125736-05:00" endTime="2018-05-03T22:22:54.5146099-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="67fd54ce-6a42-48ec-ba53-d10d9f3b5b85">
+    </UnitTestResult>
+    <UnitTestResult executionId="6b160d9d-57f5-4a4c-b9ee-b8c6b76ef940" testId="03a1b3a6-dd92-af83-792a-b3caa1cfc64e" testName="RemoveFrontOnEmptyQueueThrowsQueueEmptyExceptionTest" computerName="STOVE-MASTER" duration="00:00:00.0005902" startTime="2018-05-03T22:22:54.5190903-05:00" endTime="2018-05-03T22:22:54.5211263-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6b160d9d-57f5-4a4c-b9ee-b8c6b76ef940">
+    </UnitTestResult>
+    <UnitTestResult executionId="fcfcb9ea-2dbb-411e-8a25-b5896688fe23" testId="fd6c20eb-525d-6a10-f7aa-e03ceedfe16f" testName="ConstructorCreatesEmptyQueueTest" computerName="STOVE-MASTER" duration="00:00:00.0002824" startTime="2018-05-03T22:22:54.5251063-05:00" endTime="2018-05-03T22:22:54.5266105-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fcfcb9ea-2dbb-411e-8a25-b5896688fe23">
+    </UnitTestResult>
+    <UnitTestResult executionId="171ad8c2-128a-4f65-ad7b-2dd87d56f573" testId="3d821c1f-4535-cc22-0441-2178d0438ec5" testName="ConstructorCreatesNonFullQueueTest" computerName="STOVE-MASTER" duration="00:00:00.0001435" startTime="2018-05-03T22:22:54.5306216-05:00" endTime="2018-05-03T22:22:54.5321551-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="171ad8c2-128a-4f65-ad7b-2dd87d56f573">
+    </UnitTestResult>
+    <UnitTestResult executionId="d7eee0d8-9c20-44ef-82ea-4ac505f9be1b" testId="97365ef3-436d-9c9d-7432-5e36bdfa5b17" testName="CountTest" computerName="STOVE-MASTER" duration="00:00:00.8308853" startTime="2018-05-03T22:22:54.5361728-05:00" endTime="2018-05-03T22:22:55.3684556-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d7eee0d8-9c20-44ef-82ea-4ac505f9be1b">
+    </UnitTestResult>
+    <UnitTestResult executionId="93233915-4e53-45c4-99a1-448b45c665b5" testId="373800ba-b828-3141-13f3-14ad92fca915" testName="DataOrderPreservedTest" computerName="STOVE-MASTER" duration="00:00:00.0006371" startTime="2018-05-03T22:22:55.3741609-05:00" endTime="2018-05-03T22:22:55.3773729-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="93233915-4e53-45c4-99a1-448b45c665b5">
+    </UnitTestResult>
+    <UnitTestResult executionId="33614cf2-0e40-43eb-a409-ceb9e74c0f78" testId="72df603b-478e-691e-c9b9-cdc0bacfe212" testName="DequeueOnEmptyQueueThrowsQueueEmptyExceptionTest" computerName="STOVE-MASTER" duration="00:00:00.0009383" startTime="2018-05-03T22:22:55.3838900-05:00" endTime="2018-05-03T22:22:55.3868978-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="33614cf2-0e40-43eb-a409-ceb9e74c0f78">
+    </UnitTestResult>
+    <UnitTestResult executionId="196d6dda-9496-4be2-89ea-df10e712cfa1" testId="091f89d3-0ed1-30d7-5c4b-fdd3fa0faa90" testName="NonEmptyQueueReadsNotEmptyTest" computerName="STOVE-MASTER" duration="00:00:00.6552300" startTime="2018-05-03T22:22:55.3919109-05:00" endTime="2018-05-03T22:22:56.0491953-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="196d6dda-9496-4be2-89ea-df10e712cfa1">
+    </UnitTestResult>
+  </Results>
+</TestRun>

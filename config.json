@@ -1,0 +1,11 @@
+{
+	"canvas_key": "1876~zvEi2UQIL8jnxjKMLD9icUQ8ARrTJPFm1ab0sGaYlc6f39KwmGvmieqkQVIlMgCL",
+	"base_url": "http://canvas.northwestern.edu/api/v1/",
+	
+	"build_path":"/mnt/c/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe",
+	"test_path":"/mnt/c/Program Files (x86)/Microsoft Visual Studio/2017/Community/Common7/IDE/MSTest.exe",
+
+	"course_id": "72859",
+	
+	"assignment_id": "458956"
+}

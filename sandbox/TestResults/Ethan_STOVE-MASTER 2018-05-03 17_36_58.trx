@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="446a0b7f-c99e-4d57-bcc3-eec182c31deb" name="Ethan@STOVE-MASTER 2018-05-03 17:36:58" runUser="STOVE-MASTER\Ethan" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Configuración de pruebas predeterminada" id="77543fd5-e459-47c7-ad33-df6c892287c5">
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+    <Deployment runDeploymentRoot="Ethan_STOVE-MASTER 2018-05-03 17_36_58" />
+    <Properties />
+  </TestSettings>
+  <Times creation="2018-05-03T17:36:58.6070777-05:00" queuing="2018-05-03T17:36:58.8971484-05:00" start="2018-05-03T17:36:58.9562664-05:00" finish="2018-05-03T17:36:59.4901105-05:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="20" executed="20" error="0" failed="20" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="NonEmptyQueueReadsNotEmptyTest" storage="queuetests.dll" id="091f89d3-0ed1-30d7-5c4b-fdd3fa0faa90">
+      <Execution id="06bb9859-6149-4459-929b-52b5626c1719" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.LinkedListQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="NonEmptyQueueReadsNotEmptyTest" />
+    </UnitTest>
+    <UnitTest name="ConstructorCreatesEmptyQueueTest" storage="queuetests.dll" id="1cb0a1e2-2261-0d1a-ef0f-bcef8b0ea15f">
+      <Execution id="4e40ec60-934f-4453-9cce-b0bd1ec33bc3" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.ArrayQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="ConstructorCreatesEmptyQueueTest" />
+    </UnitTest>
+    <UnitTest name="EnqueueToFullQueueThrowsQueueFullExceptionTest" storage="queuetests.dll" id="7c46bf1f-4cc7-0ba7-67e8-52f5cd3c9713">
+      <Execution id="3b375278-71fd-4e1c-abb3-4a5d7b8f51f3" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.ArrayQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="EnqueueToFullQueueThrowsQueueFullExceptionTest" />
+    </UnitTest>
+    <UnitTest name="ConstructorCreatesEmptyQueueTest" storage="queuetests.dll" id="13d9bdf6-60d6-7932-e7f8-0dff2188658f">
+      <Execution id="976ee9ba-3906-4834-bbf8-dbbb06ed22a1" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.DequeTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="ConstructorCreatesEmptyQueueTest" />
+    </UnitTest>
+    <UnitTest name="NonEmptyQueueWrittenFromFrontReadsNotEmptyTest" storage="queuetests.dll" id="a8009935-515f-8ff9-6f0b-05a4894bf174">
+      <Execution id="6c2ce6cc-9c7c-4e94-b314-fc508d883d66" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.DequeTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="NonEmptyQueueWrittenFromFrontReadsNotEmptyTest" />
+    </UnitTest>
+    <UnitTest name="DataOrderPreservedTest" storage="queuetests.dll" id="373800ba-b828-3141-13f3-14ad92fca915">
+      <Execution id="6e341122-4386-4ed3-8792-168b5cccfc2d" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.LinkedListQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="DataOrderPreservedTest" />
+    </UnitTest>
+    <UnitTest name="DataOrderPreservedTest" storage="queuetests.dll" id="f013084a-d4ea-a9f8-357a-4047b1176ab2">
+      <Execution id="9e0080e1-897c-42b0-af7c-8b65f4c05a2d" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.ArrayQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="DataOrderPreservedTest" />
+    </UnitTest>
+    <UnitTest name="RemoveFrontOnEmptyQueueThrowsQueueEmptyExceptionTest" storage="queuetests.dll" id="03a1b3a6-dd92-af83-792a-b3caa1cfc64e">
+      <Execution id="d9411d0c-9c4d-47ae-97bb-264cee8c5414" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.DequeTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="RemoveFrontOnEmptyQueueThrowsQueueEmptyExceptionTest" />
+    </UnitTest>
+    <UnitTest name="DequeueOnEmptyQueueThrowsQueueEmptyExceptionTest" storage="queuetests.dll" id="282e02e9-49c3-e1d4-f2ea-59cee629a781">
+      <Execution id="222b03c2-82fa-4f6b-bc3b-d513589a0bf8" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.ArrayQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="DequeueOnEmptyQueueThrowsQueueEmptyExceptionTest" />
+    </UnitTest>
+    <UnitTest name="ConstructorCreatesNonFullQueueTest" storage="queuetests.dll" id="3d821c1f-4535-cc22-0441-2178d0438ec5">
+      <Execution id="2ca9a83b-3fc7-43e3-9134-b670d4b9eebb" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.LinkedListQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="ConstructorCreatesNonFullQueueTest" />
+    </UnitTest>
+    <UnitTest name="CountTest" storage="queuetests.dll" id="97365ef3-436d-9c9d-7432-5e36bdfa5b17">
+      <Execution id="3bed1ac8-94d3-4b57-ac1a-2eac8dde53f3" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.LinkedListQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="CountTest" />
+    </UnitTest>
+    <UnitTest name="ConstructorCreatesEmptyQueueTest" storage="queuetests.dll" id="fd6c20eb-525d-6a10-f7aa-e03ceedfe16f">
+      <Execution id="868455d5-cdb2-4079-8caf-f1631bc83fa1" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.LinkedListQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="ConstructorCreatesEmptyQueueTest" />
+    </UnitTest>
+    <UnitTest name="NonEmptyQueueReadsNotEmptyTest" storage="queuetests.dll" id="49e4a240-89e9-7d60-9a13-7ab7ec646d86">
+      <Execution id="791991f4-ab6c-4e14-99df-9a71f506ea78" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.DequeTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="NonEmptyQueueReadsNotEmptyTest" />
+    </UnitTest>
+    <UnitTest name="DataOrderPreservedWrittenEndwardTest" storage="queuetests.dll" id="066e5acd-d732-0380-d030-80aabd1a46ae">
+      <Execution id="0ff4c73e-b274-4909-8f47-45afeb7e5e81" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.DequeTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="DataOrderPreservedWrittenEndwardTest" />
+    </UnitTest>
+    <UnitTest name="DequeueOnEmptyQueueThrowsQueueEmptyExceptionTest" storage="queuetests.dll" id="72df603b-478e-691e-c9b9-cdc0bacfe212">
+      <Execution id="7049a486-d501-4940-9b4c-e711092b0aef" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.LinkedListQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="DequeueOnEmptyQueueThrowsQueueEmptyExceptionTest" />
+    </UnitTest>
+    <UnitTest name="RemoveEndOnEmptyQueueThrowsQueueEmptyExceptionTest" storage="queuetests.dll" id="7d7af601-d5b8-8473-4e8c-1728efc4ea22">
+      <Execution id="a46be8ca-5f16-430d-8705-f9a832526cc6" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.DequeTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="RemoveEndOnEmptyQueueThrowsQueueEmptyExceptionTest" />
+    </UnitTest>
+    <UnitTest name="DataOrderPreservedTest" storage="queuetests.dll" id="cbfdef17-e7f3-e7a4-92ed-bd0caaf2671c">
+      <Execution id="ea57609a-485f-4470-9c30-e991a2bc8324" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.DequeTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="DataOrderPreservedTest" />
+    </UnitTest>
+    <UnitTest name="CountTest" storage="queuetests.dll" id="043f3c5a-7887-abdc-d249-173d4b7b8591">
+      <Execution id="05b9f863-9dd6-4196-a3e6-e79d59cd4b84" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.ArrayQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="CountTest" />
+    </UnitTest>
+    <UnitTest name="CountTest" storage="queuetests.dll" id="10d73257-6859-e940-a43d-85dc5f42184c">
+      <Execution id="c406860d-ebd9-4bfb-be76-0a91bb75b84b" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.DequeTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="CountTest" />
+    </UnitTest>
+    <UnitTest name="ConstructorCreatesNonFullQueueTest" storage="queuetests.dll" id="1fd90ceb-f0d0-1e68-b554-ad1d4ba25e72">
+      <Execution id="4168c731-501f-425b-bde6-dfa594771700" />
+      <TestMethod codeBase="C:/Users/Ethan/Projects/214/autovonbismarck/sandbox/QueueTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="QueueTests.ArrayQueueTest, QueueTests, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null" name="ConstructorCreatesNonFullQueueTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Resultados que no están en la lista" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Todos los resultados cargados" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="1cb0a1e2-2261-0d1a-ef0f-bcef8b0ea15f" executionId="4e40ec60-934f-4453-9cce-b0bd1ec33bc3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1fd90ceb-f0d0-1e68-b554-ad1d4ba25e72" executionId="4168c731-501f-425b-bde6-dfa594771700" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="043f3c5a-7887-abdc-d249-173d4b7b8591" executionId="05b9f863-9dd6-4196-a3e6-e79d59cd4b84" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f013084a-d4ea-a9f8-357a-4047b1176ab2" executionId="9e0080e1-897c-42b0-af7c-8b65f4c05a2d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="282e02e9-49c3-e1d4-f2ea-59cee629a781" executionId="222b03c2-82fa-4f6b-bc3b-d513589a0bf8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7c46bf1f-4cc7-0ba7-67e8-52f5cd3c9713" executionId="3b375278-71fd-4e1c-abb3-4a5d7b8f51f3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="13d9bdf6-60d6-7932-e7f8-0dff2188658f" executionId="976ee9ba-3906-4834-bbf8-dbbb06ed22a1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="10d73257-6859-e940-a43d-85dc5f42184c" executionId="c406860d-ebd9-4bfb-be76-0a91bb75b84b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cbfdef17-e7f3-e7a4-92ed-bd0caaf2671c" executionId="ea57609a-485f-4470-9c30-e991a2bc8324" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="066e5acd-d732-0380-d030-80aabd1a46ae" executionId="0ff4c73e-b274-4909-8f47-45afeb7e5e81" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="49e4a240-89e9-7d60-9a13-7ab7ec646d86" executionId="791991f4-ab6c-4e14-99df-9a71f506ea78" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a8009935-515f-8ff9-6f0b-05a4894bf174" executionId="6c2ce6cc-9c7c-4e94-b314-fc508d883d66" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7d7af601-d5b8-8473-4e8c-1728efc4ea22" executionId="a46be8ca-5f16-430d-8705-f9a832526cc6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="03a1b3a6-dd92-af83-792a-b3caa1cfc64e" executionId="d9411d0c-9c4d-47ae-97bb-264cee8c5414" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fd6c20eb-525d-6a10-f7aa-e03ceedfe16f" executionId="868455d5-cdb2-4079-8caf-f1631bc83fa1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3d821c1f-4535-cc22-0441-2178d0438ec5" executionId="2ca9a83b-3fc7-43e3-9134-b670d4b9eebb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="97365ef3-436d-9c9d-7432-5e36bdfa5b17" executionId="3bed1ac8-94d3-4b57-ac1a-2eac8dde53f3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="373800ba-b828-3141-13f3-14ad92fca915" executionId="6e341122-4386-4ed3-8792-168b5cccfc2d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="72df603b-478e-691e-c9b9-cdc0bacfe212" executionId="7049a486-d501-4940-9b4c-e711092b0aef" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="091f89d3-0ed1-30d7-5c4b-fdd3fa0faa90" executionId="06bb9859-6149-4459-929b-52b5626c1719" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="4e40ec60-934f-4453-9cce-b0bd1ec33bc3" testId="1cb0a1e2-2261-0d1a-ef0f-bcef8b0ea15f" testName="ConstructorCreatesEmptyQueueTest" computerName="STOVE-MASTER" duration="00:00:00.0326318" startTime="2018-05-03T17:36:59.0154570-05:00" endTime="2018-05-03T17:36:59.3196573-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4e40ec60-934f-4453-9cce-b0bd1ec33bc3">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.ArrayQueueTest.ConstructorCreatesEmptyQueueTest produjo la excepción: 
+System.NotImplementedException: No se puede implementar el método o la operación.</Message>
+          <StackTrace>    en EECS214Assignment1.ArrayQueue.get_Count()
+   en EECS214Assignment1.Queue.get_IsEmpty()
+   en QueueTests.ArrayQueueTest.ConstructorCreatesEmptyQueueTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4168c731-501f-425b-bde6-dfa594771700" testId="1fd90ceb-f0d0-1e68-b554-ad1d4ba25e72" testName="ConstructorCreatesNonFullQueueTest" computerName="STOVE-MASTER" duration="00:00:00.0020099" startTime="2018-05-03T17:36:59.3236849-05:00" endTime="2018-05-03T17:36:59.3276790-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4168c731-501f-425b-bde6-dfa594771700">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.ArrayQueueTest.ConstructorCreatesNonFullQueueTest produjo la excepción: 
+System.NotImplementedException: No se puede implementar el método o la operación.</Message>
+          <StackTrace>    en EECS214Assignment1.ArrayQueue.get_IsFull()
+   en QueueTests.ArrayQueueTest.ConstructorCreatesNonFullQueueTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="05b9f863-9dd6-4196-a3e6-e79d59cd4b84" testId="043f3c5a-7887-abdc-d249-173d4b7b8591" testName="CountTest" computerName="STOVE-MASTER" duration="00:00:00.0020599" startTime="2018-05-03T17:36:59.3331185-05:00" endTime="2018-05-03T17:36:59.3367035-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="05b9f863-9dd6-4196-a3e6-e79d59cd4b84">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.ArrayQueueTest.CountTest produjo la excepción: 
+System.NotImplementedException: No se puede implementar el método o la operación.</Message>
+          <StackTrace>    en EECS214Assignment1.ArrayQueue.get_IsFull()
+   en QueueTests.ArrayQueueTest.CountTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="9e0080e1-897c-42b0-af7c-8b65f4c05a2d" testId="f013084a-d4ea-a9f8-357a-4047b1176ab2" testName="DataOrderPreservedTest" computerName="STOVE-MASTER" duration="00:00:00.0014975" startTime="2018-05-03T17:36:59.3407435-05:00" endTime="2018-05-03T17:36:59.3437217-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9e0080e1-897c-42b0-af7c-8b65f4c05a2d">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.ArrayQueueTest.DataOrderPreservedTest produjo la excepción: 
+System.NotImplementedException: No se puede implementar el método o la operación.</Message>
+          <StackTrace>    en EECS214Assignment1.ArrayQueue.Enqueue(Object o)
+   en QueueTests.ArrayQueueTest.DataOrderPreservedTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="222b03c2-82fa-4f6b-bc3b-d513589a0bf8" testId="282e02e9-49c3-e1d4-f2ea-59cee629a781" testName="DequeueOnEmptyQueueThrowsQueueEmptyExceptionTest" computerName="STOVE-MASTER" duration="00:00:00.0079070" startTime="2018-05-03T17:36:59.3487352-05:00" endTime="2018-05-03T17:36:59.3577590-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="222b03c2-82fa-4f6b-bc3b-d513589a0bf8">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.ArrayQueueTest.DequeueOnEmptyQueueThrowsQueueEmptyExceptionTest inició la excepción System.NotImplementedException, pero se esperaba la excepción EECS214Assignment1.QueueEmptyException. Mensaje de la excepción: System.NotImplementedException: No se puede implementar el método o la operación.</Message>
+          <StackTrace>    en EECS214Assignment1.ArrayQueue.Dequeue()
+   en QueueTests.ArrayQueueTest.DequeueOnEmptyQueueThrowsQueueEmptyExceptionTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="3b375278-71fd-4e1c-abb3-4a5d7b8f51f3" testId="7c46bf1f-4cc7-0ba7-67e8-52f5cd3c9713" testName="EnqueueToFullQueueThrowsQueueFullExceptionTest" computerName="STOVE-MASTER" duration="00:00:00.0013702" startTime="2018-05-03T17:36:59.3617703-05:00" endTime="2018-05-03T17:36:59.3647775-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3b375278-71fd-4e1c-abb3-4a5d7b8f51f3">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.ArrayQueueTest.EnqueueToFullQueueThrowsQueueFullExceptionTest inició la excepción System.NotImplementedException, pero se esperaba la excepción EECS214Assignment1.QueueFullException. Mensaje de la excepción: System.NotImplementedException: No se puede implementar el método o la operación.</Message>
+          <StackTrace>    en EECS214Assignment1.ArrayQueue.get_IsFull()
+   en QueueTests.ArrayQueueTest.EnqueueToFullQueueThrowsQueueFullExceptionTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="976ee9ba-3906-4834-bbf8-dbbb06ed22a1" testId="13d9bdf6-60d6-7932-e7f8-0dff2188658f" testName="ConstructorCreatesEmptyQueueTest" computerName="STOVE-MASTER" duration="00:00:00.0014640" startTime="2018-05-03T17:36:59.3677853-05:00" endTime="2018-05-03T17:36:59.3707935-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="976ee9ba-3906-4834-bbf8-dbbb06ed22a1">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.DequeTest.ConstructorCreatesEmptyQueueTest produjo la excepción: 
+System.NotImplementedException: No se puede implementar el método o la operación.</Message>
+          <StackTrace>    en EECS214Assignment1.Deque.get_Count()
+   en EECS214Assignment1.Deque.get_IsEmpty()
+   en QueueTests.DequeTest.ConstructorCreatesEmptyQueueTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c406860d-ebd9-4bfb-be76-0a91bb75b84b" testId="10d73257-6859-e940-a43d-85dc5f42184c" testName="CountTest" computerName="STOVE-MASTER" duration="00:00:00.0013723" startTime="2018-05-03T17:36:59.3748387-05:00" endTime="2018-05-03T17:36:59.3778134-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c406860d-ebd9-4bfb-be76-0a91bb75b84b">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.DequeTest.CountTest produjo la excepción: 
+System.NotImplementedException: No se puede implementar el método o la operación.</Message>
+          <StackTrace>    en EECS214Assignment1.Deque.get_Count()
+   en QueueTests.DequeTest.CountTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="ea57609a-485f-4470-9c30-e991a2bc8324" testId="cbfdef17-e7f3-e7a4-92ed-bd0caaf2671c" testName="DataOrderPreservedTest" computerName="STOVE-MASTER" duration="00:00:00.0016932" startTime="2018-05-03T17:36:59.3809509-05:00" endTime="2018-05-03T17:36:59.3848308-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ea57609a-485f-4470-9c30-e991a2bc8324">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.DequeTest.DataOrderPreservedTest produjo la excepción: 
+System.NotImplementedException: No se puede implementar el método o la operación.</Message>
+          <StackTrace>    en EECS214Assignment1.Deque.AddEnd(Object o)
+   en QueueTests.DequeTest.DataOrderPreservedTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="0ff4c73e-b274-4909-8f47-45afeb7e5e81" testId="066e5acd-d732-0380-d030-80aabd1a46ae" testName="DataOrderPreservedWrittenEndwardTest" computerName="STOVE-MASTER" duration="00:00:00.0014764" startTime="2018-05-03T17:36:59.3878400-05:00" endTime="2018-05-03T17:36:59.3908468-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0ff4c73e-b274-4909-8f47-45afeb7e5e81">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.DequeTest.DataOrderPreservedWrittenEndwardTest produjo la excepción: 
+System.NotImplementedException: No se puede implementar el método o la operación.</Message>
+          <StackTrace>    en EECS214Assignment1.Deque.AddFront(Object o)
+   en QueueTests.DequeTest.DataOrderPreservedWrittenEndwardTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="791991f4-ab6c-4e14-99df-9a71f506ea78" testId="49e4a240-89e9-7d60-9a13-7ab7ec646d86" testName="NonEmptyQueueReadsNotEmptyTest" computerName="STOVE-MASTER" duration="00:00:00.0039990" startTime="2018-05-03T17:36:59.3948581-05:00" endTime="2018-05-03T17:36:59.3999707-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="791991f4-ab6c-4e14-99df-9a71f506ea78">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.DequeTest.NonEmptyQueueReadsNotEmptyTest produjo la excepción: 
+System.NotImplementedException: No se puede implementar el método o la operación.</Message>
+          <StackTrace>    en EECS214Assignment1.Deque.AddEnd(Object o)
+   en QueueTests.DequeTest.NonEmptyQueueReadsNotEmptyTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="6c2ce6cc-9c7c-4e94-b314-fc508d883d66" testId="a8009935-515f-8ff9-6f0b-05a4894bf174" testName="NonEmptyQueueWrittenFromFrontReadsNotEmptyTest" computerName="STOVE-MASTER" duration="00:00:00.0014848" startTime="2018-05-03T17:36:59.4049617-05:00" endTime="2018-05-03T17:36:59.4078930-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6c2ce6cc-9c7c-4e94-b314-fc508d883d66">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.DequeTest.NonEmptyQueueWrittenFromFrontReadsNotEmptyTest produjo la excepción: 
+System.NotImplementedException: No se puede implementar el método o la operación.</Message>
+          <StackTrace>    en EECS214Assignment1.Deque.AddFront(Object o)
+   en QueueTests.DequeTest.NonEmptyQueueWrittenFromFrontReadsNotEmptyTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="a46be8ca-5f16-430d-8705-f9a832526cc6" testId="7d7af601-d5b8-8473-4e8c-1728efc4ea22" testName="RemoveEndOnEmptyQueueThrowsQueueEmptyExceptionTest" computerName="STOVE-MASTER" duration="00:00:00.0017415" startTime="2018-05-03T17:36:59.4121871-05:00" endTime="2018-05-03T17:36:59.4149136-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a46be8ca-5f16-430d-8705-f9a832526cc6">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.DequeTest.RemoveEndOnEmptyQueueThrowsQueueEmptyExceptionTest inició la excepción System.NotImplementedException, pero se esperaba la excepción EECS214Assignment1.QueueEmptyException. Mensaje de la excepción: System.NotImplementedException: No se puede implementar el método o la operación.</Message>
+          <StackTrace>    en EECS214Assignment1.Deque.RemoveEnd()
+   en QueueTests.DequeTest.RemoveEndOnEmptyQueueThrowsQueueEmptyExceptionTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d9411d0c-9c4d-47ae-97bb-264cee8c5414" testId="03a1b3a6-dd92-af83-792a-b3caa1cfc64e" testName="RemoveFrontOnEmptyQueueThrowsQueueEmptyExceptionTest" computerName="STOVE-MASTER" duration="00:00:00.0012796" startTime="2018-05-03T17:36:59.4189211-05:00" endTime="2018-05-03T17:36:59.4219299-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d9411d0c-9c4d-47ae-97bb-264cee8c5414">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.DequeTest.RemoveFrontOnEmptyQueueThrowsQueueEmptyExceptionTest inició la excepción System.NotImplementedException, pero se esperaba la excepción EECS214Assignment1.QueueEmptyException. Mensaje de la excepción: System.NotImplementedException: No se puede implementar el método o la operación.</Message>
+          <StackTrace>    en EECS214Assignment1.Deque.RemoveFront()
+   en QueueTests.DequeTest.RemoveFrontOnEmptyQueueThrowsQueueEmptyExceptionTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="868455d5-cdb2-4079-8caf-f1631bc83fa1" testId="fd6c20eb-525d-6a10-f7aa-e03ceedfe16f" testName="ConstructorCreatesEmptyQueueTest" computerName="STOVE-MASTER" duration="00:00:00.0013713" startTime="2018-05-03T17:36:59.4259716-05:00" endTime="2018-05-03T17:36:59.4289484-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="868455d5-cdb2-4079-8caf-f1631bc83fa1">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.LinkedListQueueTest.ConstructorCreatesEmptyQueueTest produjo la excepción: 
+System.NotImplementedException: No se puede implementar el método o la operación.</Message>
+          <StackTrace>    en EECS214Assignment1.LinkedListQueue.get_Count()
+   en EECS214Assignment1.Queue.get_IsEmpty()
+   en QueueTests.LinkedListQueueTest.ConstructorCreatesEmptyQueueTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="2ca9a83b-3fc7-43e3-9134-b670d4b9eebb" testId="3d821c1f-4535-cc22-0441-2178d0438ec5" testName="ConstructorCreatesNonFullQueueTest" computerName="STOVE-MASTER" duration="00:00:00.0012602" startTime="2018-05-03T17:36:59.4330010-05:00" endTime="2018-05-03T17:36:59.4349641-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2ca9a83b-3fc7-43e3-9134-b670d4b9eebb">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.LinkedListQueueTest.ConstructorCreatesNonFullQueueTest produjo la excepción: 
+System.NotImplementedException: No se puede implementar el método o la operación.</Message>
+          <StackTrace>    en EECS214Assignment1.LinkedListQueue.get_IsFull()
+   en QueueTests.LinkedListQueueTest.ConstructorCreatesNonFullQueueTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="3bed1ac8-94d3-4b57-ac1a-2eac8dde53f3" testId="97365ef3-436d-9c9d-7432-5e36bdfa5b17" testName="CountTest" computerName="STOVE-MASTER" duration="00:00:00.0012877" startTime="2018-05-03T17:36:59.4399786-05:00" endTime="2018-05-03T17:36:59.4419829-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3bed1ac8-94d3-4b57-ac1a-2eac8dde53f3">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.LinkedListQueueTest.CountTest produjo la excepción: 
+System.NotImplementedException: No se puede implementar el método o la operación.</Message>
+          <StackTrace>    en EECS214Assignment1.LinkedListQueue.get_Count()
+   en QueueTests.LinkedListQueueTest.CountTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="6e341122-4386-4ed3-8792-168b5cccfc2d" testId="373800ba-b828-3141-13f3-14ad92fca915" testName="DataOrderPreservedTest" computerName="STOVE-MASTER" duration="00:00:00.0015702" startTime="2018-05-03T17:36:59.4459929-05:00" endTime="2018-05-03T17:36:59.4490021-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6e341122-4386-4ed3-8792-168b5cccfc2d">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.LinkedListQueueTest.DataOrderPreservedTest produjo la excepción: 
+System.NotImplementedException: No se puede implementar el método o la operación.</Message>
+          <StackTrace>    en EECS214Assignment1.LinkedListQueue.Enqueue(Object o)
+   en QueueTests.LinkedListQueueTest.DataOrderPreservedTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="7049a486-d501-4940-9b4c-e711092b0aef" testId="72df603b-478e-691e-c9b9-cdc0bacfe212" testName="DequeueOnEmptyQueueThrowsQueueEmptyExceptionTest" computerName="STOVE-MASTER" duration="00:00:00.0013226" startTime="2018-05-03T17:36:59.4540593-05:00" endTime="2018-05-03T17:36:59.4570227-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7049a486-d501-4940-9b4c-e711092b0aef">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.LinkedListQueueTest.DequeueOnEmptyQueueThrowsQueueEmptyExceptionTest inició la excepción System.NotImplementedException, pero se esperaba la excepción EECS214Assignment1.QueueEmptyException. Mensaje de la excepción: System.NotImplementedException: No se puede implementar el método o la operación.</Message>
+          <StackTrace>    en EECS214Assignment1.LinkedListQueue.Dequeue()
+   en QueueTests.LinkedListQueueTest.DequeueOnEmptyQueueThrowsQueueEmptyExceptionTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="06bb9859-6149-4459-929b-52b5626c1719" testId="091f89d3-0ed1-30d7-5c4b-fdd3fa0faa90" testName="NonEmptyQueueReadsNotEmptyTest" computerName="STOVE-MASTER" duration="00:00:00.0012926" startTime="2018-05-03T17:36:59.4610746-05:00" endTime="2018-05-03T17:36:59.4630387-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="06bb9859-6149-4459-929b-52b5626c1719">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba QueueTests.LinkedListQueueTest.NonEmptyQueueReadsNotEmptyTest produjo la excepción: 
+System.NotImplementedException: No se puede implementar el método o la operación.</Message>
+          <StackTrace>    en EECS214Assignment1.LinkedListQueue.Enqueue(Object o)
+   en QueueTests.LinkedListQueueTest.NonEmptyQueueReadsNotEmptyTest()
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

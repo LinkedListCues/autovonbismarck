@@ -1,0 +1,38 @@
+﻿Herramienta de línea de comandos de ejecución de pruebas de Microsoft (R), versión 15.0.27309.0
+(C) Microsoft Corporation. Todos los derechos reservados.
+    
+Cargando QueueTests.dll...
+Iniciando la ejecución...
+
+Resultados                    Pruebas de nivel superior
+----------                    -------------------------
+Pasada                        QueueTests.ArrayQueueTest.ConstructorCreatesEmptyQueueTest
+Pasada                        QueueTests.ArrayQueueTest.ConstructorCreatesNonFullQueueTest
+Pasada                        QueueTests.ArrayQueueTest.CountTest
+Pasada                        QueueTests.ArrayQueueTest.DataOrderPreservedTest
+Pasada                        QueueTests.ArrayQueueTest.DequeueOnEmptyQueueThrowsQueueEmptyExceptionTest
+Pasada                        QueueTests.ArrayQueueTest.EnqueueToFullQueueThrowsQueueFullExceptionTest
+Pasada                        QueueTests.DequeTest.ConstructorCreatesEmptyQueueTest
+Pasada                        QueueTests.DequeTest.CountTest
+Pasada                        QueueTests.DequeTest.DataOrderPreservedTest
+Pasada                        QueueTests.DequeTest.DataOrderPreservedWrittenEndwardTest
+Pasada                        QueueTests.DequeTest.NonEmptyQueueReadsNotEmptyTest
+Pasada                        QueueTests.DequeTest.NonEmptyQueueWrittenFromFrontReadsNotEmptyTest
+Pasada                        QueueTests.DequeTest.RemoveEndOnEmptyQueueThrowsQueueEmptyExceptionTest
+Pasada                        QueueTests.DequeTest.RemoveFrontOnEmptyQueueThrowsQueueEmptyExceptionTest
+Pasada                        QueueTests.LinkedListQueueTest.ConstructorCreatesEmptyQueueTest
+Pasada                        QueueTests.LinkedListQueueTest.ConstructorCreatesNonFullQueueTest
+Pasada                        QueueTests.LinkedListQueueTest.CountTest
+Pasada                        QueueTests.LinkedListQueueTest.DataOrderPreservedTest
+Pasada                        QueueTests.LinkedListQueueTest.DequeueOnEmptyQueueThrowsQueueEmptyExceptionTest
+Pasada                        QueueTests.LinkedListQueueTest.NonEmptyQueueReadsNotEmptyTest
+20/20 pruebas Pasada
+
+Resumen
+-------
+Serie de pruebas Completado.
+  Pasada  20
+  ----------
+  Total   20
+Archivo de resultados:    C:\Users\Ethan\Projects\214\autovonbismarck\sandbox\TestResults\Ethan_STOVE-MASTER 2018-05-03 22_31_13.trx
+Configuración de pruebas: Configuración de pruebas predeterminada
