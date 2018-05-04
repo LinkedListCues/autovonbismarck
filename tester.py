@@ -15,6 +15,7 @@ class TestRunner(object):
 
 		self._test_string = self._mstest + ' "/testcontainer:"' + self._test_dll + ' "/detail:errormessage" >| out.txt'  # sorry; this sucks
 
+
 	def RunTests(self, submission):
 		result = self.PrepareStudentDLL(submission.directory, self._assignment_dll)
 		if not result[0]: return result
@@ -29,6 +30,7 @@ class TestRunner(object):
 		os.chdir('./..')
 
 		return (True, None)
+
 
 	def BuildStudentDLL(self, search_directory, submission_id):
 		if len(os.listdir(search_directory)) == 0: return (False, 'Nothing submitted.')
@@ -49,16 +51,18 @@ class TestRunner(object):
 
 		return (True, None)
 
+
 	def PrepareStudentDLL(self, search_directory, assignment, sandbox_dir='sandbox/'):
 		goal_path = os.path.join(sandbox_dir, assignment)
-		if os.path.isfile(goal_path): os.remove(goal_path)
+		# if os.path.isfile(goal_path): os.remove(goal_path)
 
 		path = self.FindAssignmentDLLPath(search_directory, assignment)
 		if not path: return (False, 'No assignment dll of the appropriate name found after build')
 
-		os.rename(path, goal_path)
+		shutil.copy(path, goal_path)
 		return (True, None)
 
+	
 	def FindAssignmentDLLPath(self, directory, assignment_name):
 		results = glob.glob(directory + '/**/Assignment1.dll', recursive=True)
 		if results: return results[0]

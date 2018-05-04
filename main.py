@@ -100,10 +100,34 @@ if __name__ == '__main__':
 	tester = TestRunner(config, 'Assignment1.dll', 'QueueTests.dll')
 
 	submissions = MakeRoster()
-	MaybeBuildAll(submissions)
-	gc.collect()
-	MaybeRunTests(submissions)
-	gc.collect()
+	
+	count = str(len(submissions))
+	ind = 0
+	for submission in submissions.values():
+		ind += 1
+		print(submission.submission_id + ' - ' + str(ind) + '\tof  ' + count, end=' ')
+
+		# build it
+		result = tester.BuildStudentDLL(submission.directory, submission.submission_id)
+		if not result[0]:
+			submission.UpdateExplanation(result)
+			print(result[1])
+		else: print()
+		
+		# test it
+		if not submission.success: continue # already failed
+		result = tester.RunTests(submission)
+		if not result[0]:
+			submission.UpdateExplanation(result)
+			print(result[1])
+			continue
+
+		
+
+	# MaybeBuildAll(submissions)
+	# gc.collect()
+	# MaybeRunTests(submissions)
+	# gc.collect()
 
 	# tester.RunTests(submission)
 	# overlord = Overlord(config)
