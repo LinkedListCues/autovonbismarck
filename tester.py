@@ -17,8 +17,11 @@ class TestRunner(object):
 
     def RunTests(self, submission):
         print('Building project for submission: \t' + submission.submission_id)
-        self.BuildStudentDLL(submission.directory)
-        self.PrepareStudentDLL(submission.directory, self._assignment_dll)
+        success = self.BuildStudentDLL(submission.directory)
+        if not success: return False # getting a sweet zero
+
+        success = self.PrepareStudentDLL(submission.directory, self._assignment_dll)
+        if not success: return False
 
         os.chdir('./sandbox')
         if os.path.isfile('out.txt'):
@@ -39,7 +42,7 @@ class TestRunner(object):
        	target = None
         if results: target = results[0]  # here's hoping that they have only one .sln
 
-        if not target: assert False, 'Failed to find a solution in directory: ' + search_directory
+        if not target: return False
 
         buildpath = self._msbuild + ' "' + target + '"'
         output = subprocess.Popen(buildpath, stdout=subprocess.PIPE, shell=True).stdout.read()
@@ -47,6 +50,8 @@ class TestRunner(object):
         # TODO this is a bit of a mess
         if '0 Errores' not in str(output):
         	assert False, 'Either it borked or you need to handle me better. Directory: ' + search_directory
+
+        return True
 
     def PrepareStudentDLL(self, search_directory, assignment, sandbox_dir='sandbox/'):
         goal_path = os.path.join(sandbox_dir, assignment)
