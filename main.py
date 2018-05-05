@@ -1,6 +1,7 @@
 import requests, json, os, gc, shutil
 from pprint import pprint
 from tester import TestRunner
+from grader import Grader
 
 # set up configuration
 # get all of the submissions as json
@@ -24,6 +25,7 @@ class CanvasConfig(object):
 		assert self.mstest_path, 'Missing MSTest.exe path.'
 		self.msbuild_path = self._json['build_path']
 		assert self.msbuild_path, 'Missing MSBuild.exe path.'
+		self.total_tests = self._json['total_tests']
 
 class Submission(object):
 	"""Container class for holding submission information, including id,
@@ -32,72 +34,24 @@ class Submission(object):
 		super(Submission, self).__init__()
 		self.submission_id = spoof
 		self.directory = os.path.join('./test', spoof)
-
-		self.success = True
-		self.explanation = ''
-		self.comment = ''
-
-	def UpdateExplanation(self, result):
-		self.success = result[0]
-		self.explanation = result[1]
-
-	def SetComment(self, comment):
-		self.comment = comment
-
-
-def MaybeDownloadAll():
-	if not DOWNLOAD_ALL: return
-	print('Downloading all projects...')
+		self.comment_file = os.path.join('./results', spoof + '_output')
+		self.invalid = False
+		self.grade = 0
 
 
 def MakeRoster():
 	results = {}
-	paths = os.listdir('./test/')
+	paths = os.listdir('./test/')[:10]
 	for directory in paths:
 		submission = Submission(directory)
 		results[directory] = submission
 	return results
 
 
-def MaybeBuildAll(submissions):
-	if not BUILD_ALL: return
-	print('Building all projects...')
-	count = str(len(submissions))
-	ind = 0
-	for submission in submissions.values():
-		ind += 1
-		print(submission.submission_id + ' - ' + str(ind) + '\tof  ' + count, end=' ')
-		result = tester.BuildStudentDLL(submission.directory, submission.submission_id)
-		
-		if not result[0]:
-			submission.UpdateExplanation(result)
-			print(result[1])
-		else: print()
-
-		
-def MaybeRunTests(submissions):
-	if not RUN_TESTS: return
-	print('Running all tests...')
-	count = str(len(submissions))
-	ind = 0
-	for submission in submissions.values():
-		if not submission.success: continue # already failed
-
-		ind += 1
-		print(submission.submission_id + ' - ' + str(ind) + '\tof  ' + count, end=' ')
-		result = tester.RunTests(submission)
-		
-		if not result[0]:
-			submission.UpdateExplanation(result)
-			print(result[1])
-		else: print()
-
-
-BUILD_ALL = False
-RUN_TESTS = True
 if __name__ == '__main__':
 	config = CanvasConfig('config.json')
 	tester = TestRunner(config, 'Assignment1.dll', 'QueueTests.dll')
+	grader = Grader(config)
 
 	submissions = MakeRoster()
 	
@@ -105,28 +59,24 @@ if __name__ == '__main__':
 	ind = 0
 	for submission in submissions.values():
 		ind += 1
-		print(submission.submission_id + ' - ' + str(ind) + '\tof  ' + count, end=' ')
+		print(submission.submission_id + ' - ' + str(ind) + '\tof  ' + count)
 
 		# build it
 		result = tester.BuildStudentDLL(submission.directory, submission.submission_id)
 		if not result[0]:
-			submission.UpdateExplanation(result)
-			print(result[1])
-		else: print()
+			submission.invalid = True
+			continue # bail out
 		
 		# test it
-		if not submission.success: continue # already failed
 		result = tester.RunTests(submission)
-		if not result[0]:
-			submission.UpdateExplanation(result)
-			print(result[1])
-			continue
+		if not result[0]: 
+			submission.invalid = True
+			continue # bail out
 
+	for submission in submissions.values():
+		grader.Grade(submission)
+		print(submission.grade)
 
-	# MaybeBuildAll(submissions)
-	# gc.collect()
-	# MaybeRunTests(submissions)
-	# gc.collect()
 
 	# tester.RunTests(submission)
 	# overlord = Overlord(config)
