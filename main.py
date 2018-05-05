@@ -1,5 +1,4 @@
-import requests, json, os, gc, shutil
-from pprint import pprint
+import requests, json, os, gc, shutil, pprint
 from tester import TestRunner
 from grader import Grader
 
@@ -21,6 +20,8 @@ class CanvasConfig(object):
 		with open(filename, 'r') as json_file:
 			self._json = json.load(json_file)
 
+		self.api_key = self._json['canvas_key']
+		assert self.api_key, 'Missing API key.'
 		self.mstest_path = self._json['test_path']
 		assert self.mstest_path, 'Missing MSTest.exe path.'
 		self.msbuild_path = self._json['build_path']
@@ -30,18 +31,25 @@ class CanvasConfig(object):
 class Submission(object):
 	"""Container class for holding submission information, including id,
 	seconds_late, and the directory in which the relevant files are stored"""
-	def __init__(self, spoof):
+	def __init__(self, submission_id):
 		super(Submission, self).__init__()
-		self.submission_id = spoof
-		self.directory = os.path.join('./test', spoof)
-		self.comment_file = os.path.join('./results', spoof + '_output')
+		self.submission_id = submission_id
+		self.directory = os.path.join('./test', submission_id)
+		self.comment_file = os.path.join('./results', submission_id + '_output')
 		self.invalid = False
-		self.grade = 0
+		self.grade = -1
+
+	def UploadResults(self, config):
+		assert self.grade >= 0, 'Grade never set for: ' + self.submission_id
+		url = "https://canvas.northwestern.edu/api/v1/courses/72859/assignments/458956/submissions/9941"
+		with open(self.comment_file, 'r') as comment_contents:
+			comments = '\n'.join(comment_contents.readlines())
+		r = requests.put(url, params={ 'access_token': config.api_key, 'comment[text_comment]': comments, 'submission[posted_grade]': self.grade })
 
 
 def MakeRoster():
 	results = {}
-	paths = os.listdir('./test/')[:10]
+	paths = os.listdir('./test/')[:1]
 	for directory in paths:
 		submission = Submission(directory)
 		results[directory] = submission
@@ -74,8 +82,12 @@ if __name__ == '__main__':
 			continue # bail out
 
 	for submission in submissions.values():
+		print('Grading all submissions...')
 		grader.Grade(submission)
-		print(submission.grade)
+
+	# TODO wait for my confirmation at each step?
+	for submission in submissions.values():
+		submission.UploadResults(config)
 
 
 	# tester.RunTests(submission)

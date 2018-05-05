@@ -108,7 +108,6 @@ class Testable(CanvasElement):
 			zp.write(file.content)
 		print('Wrote zip file to: ' + self.zippath)
 
-		
 
 	def UnzipSubmission(self):
 		if not self.submission.submitted: return
@@ -126,9 +125,6 @@ class Testable(CanvasElement):
 		self.MakeDirectory()
 		self.DownloadSubmission()
 		self.UnzipSubmission()
-
-	def RunTests(self):
-		return
 
 		
 class Overlord(CanvasElement):
