@@ -89,11 +89,14 @@ class SubmissionFetcher(CanvasElement):
 			page += 1
 
 
+# TODO so much clean up
 class Submission(object):
 	"""Container class for holding submission information, including id,
 	seconds_late, and the directory in which the relevant files are stored"""
-	def __init__(self, json, netid):
+	def __init__(self, config, json, netid):
 		super(Submission, self).__init__()
+		self.config = config
+
 		self._json = json
 		self.submission_id = str(json['id'])
 		self.user_id = str(json['user_id'])
@@ -113,6 +116,7 @@ class Submission(object):
 
 	def UploadResults(self, config):
 		assert self.grade >= 0, 'Grade never set for: ' + self.submission_id
+		print('Uploading result for ' + self.netid + ' Grade: ' + str(self.grade))
 		url = self.config.MakeUploadURL(self.user_id)
 		with open(self.comment_file, 'r') as comment_contents:
 		 	comments = '\n'.join(comment_contents.readlines())

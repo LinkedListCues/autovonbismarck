@@ -89,5 +89,4 @@ if __name__ == '__main__':
 
 	# upload grades and comments
 	for submission in submissions.values():
-		print(submission.grade)
-		# submission.UploadResults(config)
+		submission.UploadResults(config)

@@ -35,9 +35,9 @@ class Grader(object):
 			lines = [line.strip() for line in stream.readlines()]
 			split_point = 0
 			for i, line in enumerate(lines):
-				if 'Resumen' in line: split_point = i
+				if 'Summary' in line: split_point = i
 			for line in lines[split_point:]:
-				if 'Pasada' not in line: continue
+				if 'Passed' not in line: continue
 				count = int(line.split()[1])
 
 			total = int(lines[-1].split()[1])
