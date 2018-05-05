@@ -10,16 +10,13 @@ class CanvasConfig(object):
 			self._json = json.load(json_file)
 
 		self.api_key = self._json['canvas_key']
-		assert self.api_key, 'Missing API key.'
 		self.mstest_path = self._json['test_path']
-		assert self.mstest_path, 'Missing MSTest.exe path.'
 		self.msbuild_path = self._json['build_path']
-		assert self.msbuild_path, 'Missing MSBuild.exe path.'
 		self.total_tests = self._json['total_tests']
 
-		self.course_id = '72859'
-		self.assignment_id = '458956'
-		self.base_url = 'https://canvas.northwestern.edu/api/v1/'
+		self.course_id = self._json['course_id']
+		self.assignment_id = self._json['assignment_id']
+		self.base_url = self._json['base_url']
 
 		self.payload = {'per_page':'100', 'access_token': self.api_key}
 
@@ -40,7 +37,6 @@ class CanvasConfig(object):
 		return r.json()
 
 
-
 class CanvasElement(object):
 	"""A base class for things that use the Canvas config of a particular course."""
 	def __init__(self, config):
@@ -56,6 +52,7 @@ class SubmissionFetcher(CanvasElement):
 		self.submissions = []
 
 	def FetchSubmissions(self):
+		print('Downloading all submissions...')
 		url = self.config.GetSubmissionsURL()
 		page = 1
 		# iterate over all of the pages, stopping when the json is empty
@@ -80,20 +77,25 @@ class SubmissionFetcher(CanvasElement):
 # 		self.ident = json['id']
 # 		self.seconds_late = json['seconds_late']
 
-# 		self.submitted = 'attachments' in json
-# 		if (self.submitted):
-# 			self.attachment_urls = [att['url'] for att in json['attachments']]
 
 class Submission(object):
 	"""Container class for holding submission information, including id,
 	seconds_late, and the directory in which the relevant files are stored"""
-	def __init__(self, submission_id):
+	def __init__(self, json):
 		super(Submission, self).__init__()
-		self.submission_id = submission_id
-		self.directory = os.path.join('./sandbox/submissions', submission_id)
-		self.comment_file = os.path.join('./results', submission_id + '_output')
+		self._json = json
+		self.submission_id = json['id']
+		self.user_id = json['user_id']
+		self.seconds_late = json['seconds_late']
+
+		self.directory = os.path.join('./sandbox/submissions', self.submission_id)
+		self.comment_file = os.path.join('./results', self.submission_id + '_output')
 		self.invalid = False
 		self.grade = -1
+
+		self.submitted = 'attachments' in json
+		if (self.submitted):
+			self.attachment_urls = [att['url'] for att in json['attachments']]
 
 	def UploadResults(self, config):
 		assert self.grade >= 0, 'Grade never set for: ' + self.submission_id
@@ -152,34 +154,6 @@ class Testable(CanvasElement):
 		self.MakeDirectory()
 		self.DownloadSubmission()
 		self.UnzipSubmission()
-
-		
-class Overlord(CanvasElement):
-	"""docstring for Overlord"""
-	def __init__(self, config):
-		super(Overlord, self).__init__(config)
-		self.submissions = SubmissionFetcher(config)
-		self.testables = []
-
-	def PrepareSubmissions(self):
-		self.submissions.FetchSubmissions()
-
-	def PrepareTestables(self):
-		for sub in self.submissions.submissions:
-			testable = Testable(self.config, sub, True)
-			testable.Prepare()
-			self.testables.append(testable)
-
-	def RunTests(self):
-		for test in self.testables:
-			sub = test.submission
-			ident = sub.ident
-			submitted = sub.submitted
-			print('ID:\t' + str(ident) + '\tSub:\t' + str(submitted))
-			if not submitted: continue
-			print('Running tests...')
-			test.RunTests()
-			print()
 
 
 		

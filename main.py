@@ -20,7 +20,9 @@ def LoadRoster(goal_path='./sandbox/info/students.pickle'):
 			submissions = pickle.load(pickle_file)
 	else:
 		print('Making roster and pickling.')
-		submissions = MakeRoster()
+		fetcher = SubmissionFetcher(config)
+		fetcher.FetchSubmissions()
+		submissions = fetcher.submissions
 		with open(goal_path, 'wb') as pickle_file:
 			pickle.dump(submissions, pickle_file)
 
@@ -29,13 +31,13 @@ def LoadRoster(goal_path='./sandbox/info/students.pickle'):
 
 if __name__ == '__main__':
 	config = CanvasConfig('config.json')
-	tester = TestRunner(config, 'Assignment1.dll', 'QueueTests.dll')
-	grader = Grader(config)
 
 	# download everyone
 	submissions = LoadRoster()
 
 	# build and test
+	tester = TestRunner(config, 'Assignment1.dll', 'QueueTests.dll')
+
 	count = str(len(submissions))
 	ind = 0
 	for submission in submissions.values():
@@ -59,6 +61,7 @@ if __name__ == '__main__':
 		continue
 
 	# calculate grades
+	grader = Grader(config)
 	for submission in submissions.values():
 		print('Grading all submissions...')
 		grader.Grade(submission)
