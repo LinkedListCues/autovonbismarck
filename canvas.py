@@ -1,20 +1,28 @@
-import requests, os, shutil, zipfile, io
+import requests, os, shutil, zipfile, io, json
 
 class CanvasConfig(object):
 	"""Container class for Canvas configuration.
 	Holds information like your API key as well as your course number."""
-	def __init__(self):
+	def __init__(self, filename):
 		super(CanvasConfig, self).__init__()
+
+		with open(filename, 'r') as json_file:
+			self._json = json.load(json_file)
+
+		self.api_key = self._json['canvas_key']
+		assert self.api_key, 'Missing API key.'
+		self.mstest_path = self._json['test_path']
+		assert self.mstest_path, 'Missing MSTest.exe path.'
+		self.msbuild_path = self._json['build_path']
+		assert self.msbuild_path, 'Missing MSBuild.exe path.'
+		self.total_tests = self._json['total_tests']
 
 		self.course_id = '72859'
 		self.assignment_id = '458956'
 		self.base_url = 'https://canvas.northwestern.edu/api/v1/'
 
-		self.payload = {'per_page':'100'}
-		with open('secret', 'r') as secretfile:
-			# TODO validation
-			self.api_key = secretfile.readline().strip()
-			self.payload['access_token'] = self.api_key
+		self.payload = {'per_page':'100', 'access_token': self.api_key}
+
 
 	def MakeURL(self, *argv):
 		return self.base_url + '/'.join([str(arg) for arg in argv])
@@ -30,6 +38,7 @@ class CanvasConfig(object):
 		r = requests.get(URL, params=self.payload)
 		self.payload['page'] = str(1)
 		return r.json()
+
 
 
 class CanvasElement(object):
@@ -59,21 +68,39 @@ class SubmissionFetcher(CanvasElement):
 			page += 1
 
 
-class Submission(object):
-	"""
-	Container class for submission information.
-	Provides access to the name, id, download url, and timestamp.
-	Also holds onto the raw json, in case that matters to you.
-	"""
-	def __init__(self, json):
-		super(Submission, self).__init__()
-		self.json = json
-		self.ident = json['id']
-		self.seconds_late = json['seconds_late']
+# class Submission(object):
+# 	"""
+# 	Container class for submission information.
+# 	Provides access to the name, id, download url, and timestamp.
+# 	Also holds onto the raw json, in case that matters to you.
+# 	"""
+# 	def __init__(self, json):
+# 		super(Submission, self).__init__()
+# 		self.json = json
+# 		self.ident = json['id']
+# 		self.seconds_late = json['seconds_late']
 
-		self.submitted = 'attachments' in json
-		if (self.submitted):
-			self.attachment_urls = [att['url'] for att in json['attachments']]
+# 		self.submitted = 'attachments' in json
+# 		if (self.submitted):
+# 			self.attachment_urls = [att['url'] for att in json['attachments']]
+
+class Submission(object):
+	"""Container class for holding submission information, including id,
+	seconds_late, and the directory in which the relevant files are stored"""
+	def __init__(self, submission_id):
+		super(Submission, self).__init__()
+		self.submission_id = submission_id
+		self.directory = os.path.join('./sandbox/submissions', submission_id)
+		self.comment_file = os.path.join('./results', submission_id + '_output')
+		self.invalid = False
+		self.grade = -1
+
+	def UploadResults(self, config):
+		assert self.grade >= 0, 'Grade never set for: ' + self.submission_id
+		# url = "https://canvas.northwestern.edu/api/v1/courses/72859/assignments/458956/submissions/9941"
+		# with open(self.comment_file, 'r') as comment_contents:
+		# 	comments = '\n'.join(comment_contents.readlines())
+		# r = requests.put(url, params={ 'access_token': config.api_key, 'comment[text_comment]': comments, 'submission[posted_grade]': self.grade })
 
 
 class Testable(CanvasElement):
@@ -158,3 +185,30 @@ class Overlord(CanvasElement):
 		
 # overlord
 # class submission
+
+import requests
+from canvas import CanvasElement
+
+class AssignmentsFetcher(CanvasElement):
+	"""Fetches a list of all assignments. Prints their names and ids.
+	Useful for when you want to change configurations."""
+	def __init__(self, config):
+		super(AssignmentsFetcher, self).__init__(config)
+
+	def PrintAll(self):
+		url = self.config.base_url + 'courses/72859/assignments/'
+		results = []
+		maxwidth = 0
+		
+		r = requests.get(url, params=self.config.payload)
+		for assignment in r.json():
+			name = assignment['name']
+			ident = assignment['id']
+			maxwidth = max(maxwidth, len(name))
+			results.append((name, ident))
+
+		for result in results:
+			name = str(result[0])
+			name += ' ' * (maxwidth - len(name))
+			ident = str(result[1])
+			print('Name:\t' + name + '\tID:\t' + ident)

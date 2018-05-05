@@ -1,6 +1,0 @@
-C:\Users\Ethan\Projects\214\autovonbismarck\12546345\12546345_zip\EECS-214 Assignment 1\Assignment 1\bin\Debug\Assignment1.dll
-C:\Users\Ethan\Projects\214\autovonbismarck\12546345\12546345_zip\EECS-214 Assignment 1\Assignment 1\bin\Debug\Assignment1.pdb
-C:\Users\Ethan\Projects\214\autovonbismarck\12546345\12546345_zip\EECS-214 Assignment 1\Assignment 1\obj\Debug\Assignment1.csprojResolveAssemblyReference.cache
-C:\Users\Ethan\Projects\214\autovonbismarck\12546345\12546345_zip\EECS-214 Assignment 1\Assignment 1\obj\Debug\Assignment1.csproj.CoreCompileInputs.cache
-C:\Users\Ethan\Projects\214\autovonbismarck\12546345\12546345_zip\EECS-214 Assignment 1\Assignment 1\obj\Debug\Assignment1.dll
-C:\Users\Ethan\Projects\214\autovonbismarck\12546345\12546345_zip\EECS-214 Assignment 1\Assignment 1\obj\Debug\Assignment1.pdb

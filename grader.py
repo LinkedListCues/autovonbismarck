@@ -5,7 +5,7 @@ class Grader(object):
 		self._config = config
 		self._total_tests = config.total_tests
 
-	def Grade(self, submission):
+	def Grade(self, submission, late_penalty=0):
 		if submission.invalid:
 			submission.grade = 0
 			return
@@ -13,7 +13,7 @@ class Grader(object):
 		comment_file = submission.comment_file
 		self.CleanResults(comment_file)
 		grade = self.CalculateResults(comment_file)
-		submission.grade = grade
+		submission.grade = (1.0 - late_penalty) * grade
 		
 	
 	def CleanResults(self, comment_file):
