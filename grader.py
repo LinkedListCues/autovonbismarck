@@ -44,4 +44,4 @@ class Grader(object):
 
 			assert total == self._total_tests, 'Different count for total tests?!'
 
-			return float(count) / float(total) * 100.0
+			return round(1000.0 * float(count) / float(total)) / 10.0

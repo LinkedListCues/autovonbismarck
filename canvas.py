@@ -1,4 +1,5 @@
 import requests, os, shutil, zipfile, io, json
+from pprint import pprint
 
 class CanvasConfig(object):
 	"""Container class for Canvas configuration.
@@ -84,7 +85,7 @@ class SubmissionFetcher(CanvasElement):
 			if not json: break
 			for item in json:
 				user = item['user_id']
-				sub = Submission(item, netids[user])
+				sub = Submission(self.config, item, netids[user])
 				self.submissions[sub.submission_id] = sub
 			page += 1
 
@@ -117,10 +118,12 @@ class Submission(object):
 	def UploadResults(self, config):
 		assert self.grade >= 0, 'Grade never set for: ' + self.submission_id
 		print('Uploading result for ' + self.netid + ' Grade: ' + str(self.grade))
-		url = self.config.MakeUploadURL(self.user_id)
+		
+		# url = self.config.GetUploadURL(self.user_id)
+		url = "https://canvas.northwestern.edu/api/v1/courses/72859/assignments/458956/submissions/" + self.user_id
 		with open(self.comment_file, 'r') as comment_contents:
 		 	comments = '\n'.join(comment_contents.readlines())
-		r = requests.put(url, params={ 'access_token': config.api_key, 'comment[text_comment]': comments, 'submission[posted_grade]': self.grade })
+		r = requests.put(url, params={ 'access_token': config.api_key, 'submission[posted_grade]': self.grade, 'comment[text_comment]': comments })
 
 
 class Preparer(CanvasElement):

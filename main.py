@@ -1,10 +1,11 @@
-import requests, json, os, gc, shutil, pprint, pickle, csv, random
+import requests, json, os, gc, shutil, pickle, csv, random
 from tester import TestRunner
 from grader import Grader
 from canvas import *
+from pprint import pprint
 
 
-def LoadRoster(goal_path='./sandbox/info/students.pickle'):
+def LoadRoster(config, goal_path='./sandbox/info/students.pickle'):
 	if os.path.isfile(goal_path):
 		print('Unpickling roster.')
 		with open(goal_path, 'rb') as pickle_file:
@@ -17,14 +18,14 @@ def LoadRoster(goal_path='./sandbox/info/students.pickle'):
 		with open(goal_path, 'wb') as pickle_file:
 			pickle.dump(submissions, pickle_file)
 
-	dummy = []
-	for v in submissions.values():
-		dummy.append(v)
-	random.shuffle(dummy)
-	dummy = dummy[:10]
-	submissions = {}
-	for d in dummy:
-		submissions[d.submission_id] = d
+	# dummy = []
+	# for v in submissions.values():
+	# 	dummy.append(v)
+	# random.shuffle(dummy)
+	# dummy = dummy[:2]
+	# submissions = {}
+	# for d in dummy:
+	# 	submissions[d.submission_id] = d
 
 	return submissions
 
@@ -32,8 +33,12 @@ def LoadRoster(goal_path='./sandbox/info/students.pickle'):
 if __name__ == '__main__':
 	config = CanvasConfig('config.json')
 
+	# url = "https://canvas.northwestern.edu/api/v1/courses/72859/assignments/458956/submissions/64485"
+	# r = requests.put(url, params={ 'access_token': config.api_key, 'submission[posted_grade]': '90.0' } )
+	# pprint(r.json())
+
 	# download everyone
-	submissions = LoadRoster()
+	submissions = LoadRoster(config)
 	submissions_count = str(len(submissions))
 
 	ind = 0
