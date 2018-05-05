@@ -4,15 +4,6 @@ from grader import Grader
 from canvas import *
 
 
-def MakeRoster():
-	results = {}
-	paths = os.listdir('./sandbox/submissions/')[:1]
-	for directory in paths:
-		submission = Submission(directory)
-		results[directory] = submission
-	return results
-
-
 def LoadRoster(goal_path='./sandbox/info/students.pickle'):
 	if os.path.isfile(goal_path):
 		print('Unpickling roster.')
@@ -34,15 +25,24 @@ if __name__ == '__main__':
 
 	# download everyone
 	submissions = LoadRoster()
+	submissions_count = str(len(submissions))
+
+	ind = 0
+	for submission in submissions.values():
+		ind += 1
+		print(str(ind) + '\tof  ' + submissions_count)
+		prep = Preparer(config, submission)
+		prep.Prepare()
+	gc.collect()
+
 
 	# build and test
 	tester = TestRunner(config, 'Assignment1.dll', 'QueueTests.dll')
 
-	count = str(len(submissions))
 	ind = 0
 	for submission in submissions.values():
 		ind += 1
-		print(submission.submission_id + ' - ' + str(ind) + '\tof  ' + count)
+		print(submission.submission_id + ' - ' + str(ind) + '\tof  ' + submissions_count)
 
 		# build it
 		result = tester.BuildStudentDLL(submission.directory, submission.submission_id)

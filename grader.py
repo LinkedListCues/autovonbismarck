@@ -5,7 +5,7 @@ class Grader(object):
 		self._config = config
 		self._total_tests = config.total_tests
 
-	def Grade(self, submission, late_penalty=0):
+	def Grade(self, submission, late_penalty):
 		if submission.invalid:
 			submission.grade = 0
 			return
@@ -13,7 +13,7 @@ class Grader(object):
 		comment_file = submission.comment_file
 		self.CleanResults(comment_file)
 		grade = self.CalculateResults(comment_file)
-		submission.grade = (1.0 - late_penalty) * grade
+		submission.grade = (1.0 - submission.late_penalty) * grade
 		
 	
 	def CleanResults(self, comment_file):
@@ -30,6 +30,7 @@ class Grader(object):
 
 	# TODO this feels shitty [at least the shittiness is well-hidden - Ethan]
 	def CalculateResults(self, comment_file):
+		count = 0
 		with open(comment_file, 'r') as stream:
 			lines = [line.strip() for line in stream.readlines()]
 			split_point = 0

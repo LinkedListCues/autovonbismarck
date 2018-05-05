@@ -30,11 +30,18 @@ class CanvasConfig(object):
 			'assignments', self.assignment_id,
 			'submissions')
 
+	def GetNetid(self, user_id):
+		url = self.MakeURL(
+			'courses', self.course_id,
+			'users', user_id)
+		return self.GetJSON(url)['login_id']
+
 	def GetJSON(self, URL, page=1):
 		self.payload['page'] = str(page)
 		r = requests.get(URL, params=self.payload)
 		self.payload['page'] = str(1)
 		return r.json()
+
 
 
 class CanvasElement(object):
@@ -49,49 +56,41 @@ class SubmissionFetcher(CanvasElement):
 	Makes an instance of the Submission class for each one."""
 	def __init__(self, config):
 		super(SubmissionFetcher, self).__init__(config)
-		self.submissions = []
+		self.submissions = {}
 
 	def FetchSubmissions(self):
 		print('Downloading all submissions...')
 		url = self.config.GetSubmissionsURL()
 		page = 1
+		count = 0
 		# iterate over all of the pages, stopping when the json is empty
-		# is this a hack? hard to tell with python
 		while(True):
 			json = self.config.GetJSON(url, page)
 			if not json: break
 			for item in json:
-				self.submissions.append(Submission(item)) # sorry about this
+				netid = self.config.GetNetid(json['user_id'])
+				sub = Submission(item)
+				self.submissions[sub.submission_id] = sub
 			page += 1
-
-
-# class Submission(object):
-# 	"""
-# 	Container class for submission information.
-# 	Provides access to the name, id, download url, and timestamp.
-# 	Also holds onto the raw json, in case that matters to you.
-# 	"""
-# 	def __init__(self, json):
-# 		super(Submission, self).__init__()
-# 		self.json = json
-# 		self.ident = json['id']
-# 		self.seconds_late = json['seconds_late']
 
 
 class Submission(object):
 	"""Container class for holding submission information, including id,
 	seconds_late, and the directory in which the relevant files are stored"""
 	def __init__(self, json):
-		super(Submission, self).__init__()
+		super(Submission, self, netid).__init__()
 		self._json = json
-		self.submission_id = json['id']
-		self.user_id = json['user_id']
+		self.submission_id = str(json['id'])
+		self.user_id = str(json['user_id'])
+		self.netid = netid
 		self.seconds_late = json['seconds_late']
 
 		self.directory = os.path.join('./sandbox/submissions', self.submission_id)
 		self.comment_file = os.path.join('./results', self.submission_id + '_output')
 		self.invalid = False
+		
 		self.grade = -1
+		self.late_penalty = 0
 
 		self.submitted = 'attachments' in json
 		if (self.submitted):
@@ -105,32 +104,27 @@ class Submission(object):
 		# r = requests.put(url, params={ 'access_token': config.api_key, 'comment[text_comment]': comments, 'submission[posted_grade]': self.grade })
 
 
-class Testable(CanvasElement):
+class Preparer(CanvasElement):
 	"""
 	Container class for pointers to the submissions directory.
 	Handles the running of unit tests and making the results textfile.
 	"""
-	def __init__(self, config, submission, clobber=False, directory='test'):
-		super(Testable, self).__init__(config)
+	def __init__(self, config, submission, directory='sandbox/submissions'):
+		super(Preparer, self).__init__(config)
 		self.submission = submission
-		self.clobber = clobber
 		self.directory_name = directory
+		self.path = os.path.join(self.directory_name, str(self.submission.submission_id))
 
 	def MakeDirectory(self):
-		self.path = os.path.join(self.directory_name, str(self.submission.ident))
 		if not os.path.exists(self.path):
 			os.makedirs(self.path)
-			return
-
-		if not self.clobber: return
-		shutil.rmtree(self.path, ignore_errors=True)
-		os.makedirs(self.path)
+		assert False, 'Asked to make a directory, but we already had one.'
 	
 	def DownloadSubmission(self):
 		if not self.submission.submitted: return
 		url = self.submission.attachment_urls[0]
 		file = requests.get(url, stream=True)
-		zipname = str(self.submission.ident) + '_zip.zip'
+		zipname = str(self.submission.submission_id) + '_zip.zip'
 		self.zippath = os.path.join(self.path, zipname)
 
 		with open(self.zippath, 'wb') as zp:
@@ -147,10 +141,11 @@ class Testable(CanvasElement):
 		# z = zipfile.ZipFile(io.BytesIO(file.content))
 		# z.extractall(self.path)
 		# print('Extracted file to: ' + self.path)
-		return
 
 	def Prepare(self):
-		print('Preparing submission for:\t' + str(self.submission.ident))
+		print('Preparing submission for:\t' + str(self.submission.submission_id))
+		if os.path.exists(self.path): return # assume correct production on previous runs
+		
 		self.MakeDirectory()
 		self.DownloadSubmission()
 		self.UnzipSubmission()
