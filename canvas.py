@@ -30,11 +30,14 @@ class CanvasConfig(object):
 			'assignments', self.assignment_id,
 			'submissions')
 
-	def GetNetid(self, user_id):
-		url = self.MakeURL(
+	def GetUserURL(self):
+		return self.MakeURL('courses', self.course_id, 'users')
+
+	def GetUploadURL(self, user_id):
+		return self.MakeURL(
 			'courses', self.course_id,
-			'users', user_id)
-		return self.GetJSON(url)['login_id']
+			'assignments', self.assignment_id,
+			'submissions', user_id)
 
 	def GetJSON(self, URL, page=1):
 		self.payload['page'] = str(page)
@@ -59,17 +62,29 @@ class SubmissionFetcher(CanvasElement):
 		self.submissions = {}
 
 	def FetchSubmissions(self):
-		print('Downloading all submissions...')
+		print('Fetching netids...')
+		netids = {}
+		url = self.config.GetUserURL()
+		page = 1
+		while(True):
+			json = self.config.GetJSON(url, page)
+			if not json: break
+			for item in json:
+				user = item['id']
+				netids[user] = item['login_id']
+			page += 1
+
 		url = self.config.GetSubmissionsURL()
 		page = 1
-		count = 0
+
+		print('Preparing roster...')
 		# iterate over all of the pages, stopping when the json is empty
 		while(True):
 			json = self.config.GetJSON(url, page)
 			if not json: break
 			for item in json:
-				netid = self.config.GetNetid(json['user_id'])
-				sub = Submission(item)
+				user = item['user_id']
+				sub = Submission(item, netids[user])
 				self.submissions[sub.submission_id] = sub
 			page += 1
 
@@ -77,8 +92,8 @@ class SubmissionFetcher(CanvasElement):
 class Submission(object):
 	"""Container class for holding submission information, including id,
 	seconds_late, and the directory in which the relevant files are stored"""
-	def __init__(self, json):
-		super(Submission, self, netid).__init__()
+	def __init__(self, json, netid):
+		super(Submission, self).__init__()
 		self._json = json
 		self.submission_id = str(json['id'])
 		self.user_id = str(json['user_id'])
@@ -98,10 +113,10 @@ class Submission(object):
 
 	def UploadResults(self, config):
 		assert self.grade >= 0, 'Grade never set for: ' + self.submission_id
-		# url = "https://canvas.northwestern.edu/api/v1/courses/72859/assignments/458956/submissions/9941"
-		# with open(self.comment_file, 'r') as comment_contents:
-		# 	comments = '\n'.join(comment_contents.readlines())
-		# r = requests.put(url, params={ 'access_token': config.api_key, 'comment[text_comment]': comments, 'submission[posted_grade]': self.grade })
+		url = self.config.MakeUploadURL(self.user_id)
+		with open(self.comment_file, 'r') as comment_contents:
+		 	comments = '\n'.join(comment_contents.readlines())
+		r = requests.put(url, params={ 'access_token': config.api_key, 'comment[text_comment]': comments, 'submission[posted_grade]': self.grade })
 
 
 class Preparer(CanvasElement):
@@ -118,6 +133,7 @@ class Preparer(CanvasElement):
 	def MakeDirectory(self):
 		if not os.path.exists(self.path):
 			os.makedirs(self.path)
+			return
 		assert False, 'Asked to make a directory, but we already had one.'
 	
 	def DownloadSubmission(self):

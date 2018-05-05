@@ -5,7 +5,7 @@ class Grader(object):
 		self._config = config
 		self._total_tests = config.total_tests
 
-	def Grade(self, submission, late_penalty):
+	def Grade(self, submission):
 		if submission.invalid:
 			submission.grade = 0
 			return
