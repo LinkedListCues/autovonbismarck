@@ -88,8 +88,8 @@ if __name__ == '__main__':
 
 	# calculate grades
 	grader = Grader(config)
+	print('Grading all submissions...')
 	for submission in submissions.values():
-		print('Grading all submissions...')
 		grader.Grade(submission)
 
 	# upload grades and comments
