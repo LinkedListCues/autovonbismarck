@@ -8,7 +8,10 @@ class CanvasConfig(object):
 		super(CanvasConfig, self).__init__()
 		self._json=json
 
-		self.api_key = self._json['canvas_key']
+		secret_file = self._json['canvas_key_location']
+		with open(secret_file, 'r') as secret:
+			self.api_key = secret.readline().strip()
+
 		self.mstest_path = self._json['test_path']
 		self.msbuild_path = self._json['build_path']
 		self.total_tests = self._json['total_tests']
