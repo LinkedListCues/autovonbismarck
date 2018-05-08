@@ -4,11 +4,9 @@ from pprint import pprint
 class CanvasConfig(object):
 	"""Container class for Canvas configuration.
 	Holds information like your API key as well as your course number."""
-	def __init__(self, filename):
+	def __init__(self, json):
 		super(CanvasConfig, self).__init__()
-
-		with open(filename, 'r') as json_file:
-			self._json = json.load(json_file)
+		self._json=json
 
 		self.api_key = self._json['canvas_key']
 		self.mstest_path = self._json['test_path']
@@ -173,10 +171,6 @@ class Preparer(CanvasElement):
 		self.DownloadSubmission()
 		self.UnzipSubmission()
 
-
-		
-# overlord
-# class submission
 
 import requests
 from canvas import CanvasElement
