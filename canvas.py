@@ -132,72 +132,36 @@ class Preparer(CanvasElement):
 	Container class for pointers to the submissions directory.
 	Handles the running of unit tests and making the results textfile.
 	"""
-	def __init__(self, config, submission, directory='sandbox/submissions'):
+	def __init__(self, config, submission, directory):
 		super(Preparer, self).__init__(config)
 		self.submission = submission
 		self.directory_name = directory
 		self.path = os.path.join(self.directory_name, str(self.submission.submission_id))
 
-	def MakeDirectory(self):
-		if not os.path.exists(self.path):
-			os.makedirs(self.path)
-			return
-		assert False, 'Asked to make a directory, but we already had one.'
+	def Prepare(self):
+		print('Preparing submission for:\t' + str(self.submission.submission_id))
+		if os.path.exists(self.path): return # assume correct production on previous runs
+		os.makedirs(self.path, exist_ok=True)
+		self.DownloadSubmission()
+		self.UnzipSubmission()
+
 	
 	def DownloadSubmission(self):
 		if not self.submission.submitted: return
 		url = self.submission.attachment_urls[0]
 		file = requests.get(url, stream=True)
-		zipname = str(self.submission.submission_id) + '_zip.zip'
+		zipname = str(self.submission.submission_id) + '.zip'
 		self.zippath = os.path.join(self.path, zipname)
 
 		with open(self.zippath, 'wb') as zp:
 			zp.write(file.content)
-		print('Wrote zip file to: ' + self.zippath)
+		print('Wrote zip file to ' + self.zippath)
 
 
 	def UnzipSubmission(self):
 		if not self.submission.submitted: return
-		respath = self.zippath.split('.')[0]
+		respath = os.path.splitext(self.zippath)[0]
+		print('Unzipping to ' + respath)
 		with open (self.zippath, 'rb') as zp:
 			z = zipfile.ZipFile(zp)
 			z.extractall(respath)
-		# z = zipfile.ZipFile(io.BytesIO(file.content))
-		# z.extractall(self.path)
-		# print('Extracted file to: ' + self.path)
-
-	def Prepare(self):
-		print('Preparing submission for:\t' + str(self.submission.submission_id))
-		if os.path.exists(self.path): return # assume correct production on previous runs
-		
-		self.MakeDirectory()
-		self.DownloadSubmission()
-		self.UnzipSubmission()
-
-
-import requests
-from canvas import CanvasElement
-
-class AssignmentsFetcher(CanvasElement):
-	"""Fetches a list of all assignments. Prints their names and ids.
-	Useful for when you want to change configurations."""
-	def __init__(self, config):
-		super(AssignmentsFetcher, self).__init__(config)
-
-	def PrintAll(self):
-		url = self.config.base_url + 'courses/72859/assignments/'
-		results = []
-		maxwidth = 0
-		
-		r = requests.get(url, params=self.config.payload)
-		for assignment in r.json():
-			name = assignment['name']
-			ident = assignment['id']
-			maxwidth = max(maxwidth, len(name))
-			results.append((name, ident))
-
-		for result in results:
-			name = str(result[0])
-			name += ' ' * (maxwidth - len(name))
-			ident = str(result[1])
-			print('Name:\t' + name + '\tID:\t' + ident)
