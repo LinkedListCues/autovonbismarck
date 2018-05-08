@@ -18,24 +18,29 @@ def LoadRoster(config, goal_path='./sandbox/info/students.pickle'):
 		with open(goal_path, 'wb') as pickle_file:
 			pickle.dump(submissions, pickle_file)
 
-	# dummy = []
-	# for v in submissions.values():
-	# 	dummy.append(v)
-	# random.shuffle(dummy)
-	# dummy = dummy[:2]
-	# submissions = {}
-	# for d in dummy:
-	# 	submissions[d.submission_id] = d
-
 	return submissions
+
+def CalculateLatePenalties():
+	print('Calculating late penalties...')
+	extensions = []
+	with open('./sandbox/info/extensions.csv') as csvfile:
+		reader = csv.reader(csvfile)
+		for row in reader:
+			netid = row[4].lower()
+			netid2 = row[5].lower()
+			if netid != netid2: continue
+			extensions.append(netid.lower)
+
+	# allow for off by two errors, because we don't trust python
+	for submission in submissions.values():
+		hours_late = int(submission.seconds_late) / 3600
+		if hours_late <= 2: continue
+		if hours_late <= 50 and submission.netid in extensions: continue
+		submission.late_penalty = 0.3 if hours_late <= 170 else 1
 
 
 if __name__ == '__main__':
 	config = CanvasConfig('config.json')
-
-	# url = "https://canvas.northwestern.edu/api/v1/courses/72859/assignments/458956/submissions/64485"
-	# r = requests.put(url, params={ 'access_token': config.api_key, 'submission[posted_grade]': '90.0' } )
-	# pprint(r.json())
 
 	# download everyone
 	submissions = LoadRoster(config)
@@ -50,21 +55,7 @@ if __name__ == '__main__':
 	gc.collect()
 
 	# calculate late penalties for everyone
-	print('Calculating late penalties...')
-	extensions = []
-	with open('./sandbox/info/extensions.csv') as csvfile:
-		reader = csv.reader(csvfile)
-		for row in reader:
-			netid = row[4]
-			netid2 = row[5]
-			if netid != netid2: continue
-			extensions.append(netid)
-
-	for submission in submissions.values():
-		hours_late = int(submission.seconds_late) / 3600
-		if hours_late <= 0: continue
-		if hours_late <= 48 and submission.netid in extensions: continue
-		submission.late_penalty = 0.3 if hours_late < 168 else 1
+	CalculateLatePenalties()
 
 	# build and test
 	tester = TestRunner(config, 'Assignment1.dll', 'QueueTests.dll')
