@@ -92,7 +92,7 @@ def PrepareSubmissions(config, submissions):
 		prep.Prepare()
 
 def CalculateLatePenalties(submissions):
-	print('Calculating late penalties...')
+	print('Calculating late penalties')
 	# allow for off by two errors, because we don't trust python
 	# also, just give everyone the goddamn extension, because we get things like 197/208 students going for it anyway
 	for submission in submissions.values():
@@ -120,6 +120,7 @@ def Run(args):
 
 
 parser = argparse.ArgumentParser(description='Download, build, test, and grade studnets\' C# submissions. Made for EECS 214.')
+
 parser.add_argument(
 	'--config',
 	type=str,
@@ -128,22 +129,23 @@ parser.add_argument(
 	default='./config.json')
 
 parser.add_argument(
-	'--test',
-	type=bool,
-	help='Do a dry run of the process. Run every step except uploading. Print out the results at the end.',
-	default=False)
-
-parser.add_argument(
 	'--clean',
 	action='store_const',
 	const=True, default=False,
 	help='Clear out everything in the sandbox directory, then rebuild it from scratch.')
 
 parser.add_argument(
+	'--test',
+	type=bool,
+	help='Do a dry run of the process. Run every step except uploading. Print out the results at the end.',
+	default=False)
+
+parser.add_argument(
 	'--no-comments',
 	action='store_const',
 	const=True, default=False,
 	help='Do not add comments to upload; only post the grades.')
+
 
 args = parser.parse_args()
 Run(args)
