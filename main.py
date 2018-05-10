@@ -18,14 +18,6 @@ SUBMISSIONS_DIR=SANDBOX_DIR+'/submissions'
 # 	submissions = LoadRoster(config)
 # 	submissions_count = str(len(submissions))
 
-# 	ind = 0
-# 	for submission in submissions.values():
-# 		ind += 1
-# 		print(str(ind) + '\tof  ' + submissions_count)
-# 		prep = Preparer(config, submission)
-# 		prep.Prepare()
-# 	gc.collect()
-
 # 	# calculate late penalties for everyone
 # 	CalculateLatePenalties()
 
@@ -75,6 +67,7 @@ def LoadConfig(config_file):
 		config = CanvasConfig(output)
 	pprint(output)
 	print()
+	return config
 
 def LoadRoster(config, goal_path):
 	if os.path.isfile(goal_path):
@@ -91,22 +84,20 @@ def LoadRoster(config, goal_path):
 
 	return submissions
 
-def CalculateLatePenalties():
-	print('Calculating late penalties...')
-	extensions = []
-	with open('./sandbox/info/extensions.csv') as csvfile:
-		reader = csv.reader(csvfile)
-		for row in reader:
-			netid = row[4].lower()
-			netid2 = row[5].lower()
-			if netid != netid2: continue
-			extensions.append(netid.lower)
+def PrepareSubmissions(config, submissions):
+	count = str(len(submissions))
+	for ind, submission in enumerate(submissions.values()):
+		print(str(ind + 1) + '\tof  ' + count)
+		prep = Preparer(config, submission, SUBMISSIONS_DIR)
+		prep.Prepare()
 
+def CalculateLatePenalties(submissions):
+	print('Calculating late penalties...')
 	# allow for off by two errors, because we don't trust python
+	# also, just give everyone the goddamn extension, because we get things like 197/208 students going for it anyway
 	for submission in submissions.values():
 		hours_late = int(submission.seconds_late) / 3600
-		if hours_late <= 2: continue
-		if hours_late <= 50 and submission.netid in extensions: continue
+		if hours_late <= 50: continue
 		submission.late_penalty = 0.3 if hours_late <= 170 else 1
 
 
@@ -118,11 +109,11 @@ def Run(args):
 		MakeAll()
 		return
 
-	LoadConfig(args.config)
-	# LoadRoster()
-	# DownloadSubmissions()
-	# CalculateLatePenalties()
-	# PrepareSubmissions()
+	config = LoadConfig(args.config)
+	submissions = LoadRoster(config, INFO_DIR+'/students.pickle')
+	PrepareSubmissions(config, submissions)
+	CalculateLatePenalties(submissions)
+	# BuildSubmissions()
 	# GradeSubmissions()
 	# CollateResults()
 	# UploadResults()
@@ -145,8 +136,14 @@ parser.add_argument(
 parser.add_argument(
 	'--clean',
 	action='store_const',
-	const=True,default=False,
+	const=True, default=False,
 	help='Clear out everything in the sandbox directory, then rebuild it from scratch.')
+
+parser.add_argument(
+	'--no-comments',
+	action='store_const',
+	const=True, default=False,
+	help='Do not add comments to upload; only post the grades.')
 
 args = parser.parse_args()
 Run(args)
