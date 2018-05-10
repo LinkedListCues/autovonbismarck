@@ -142,24 +142,32 @@ class Preparer(CanvasElement):
 		self.directory_name = directory
 		self.path = os.path.join(self.directory_name, str(self.submission.submission_id))
 
-	def Prepare(self):
+	def Prepare(self, no_zip=False):
 		print('Preparing submission for:\t' + str(self.submission.submission_id))
 		if os.path.exists(self.path): return # assume correct production on previous runs
 		os.makedirs(self.path, exist_ok=True)
-		self.DownloadSubmission()
-		self.UnzipSubmission()
+
+		self.DownloadSubmission(no_zip)
+		if not no_zip: self.UnzipSubmission()
 
 	
-	def DownloadSubmission(self):
+	def DownloadSubmission(self, no_zip):
 		if not self.submission.submitted: return
 		url = self.submission.attachment_urls[0]
 		file = requests.get(url, stream=True)
-		zipname = str(self.submission.submission_id) + '.zip'
-		self.zippath = os.path.join(self.path, zipname)
+		
+		if no_zip:
+			path_name = os.path.join(self.path, str(self.submission.submission_id + '.cs'))
+			with open(path_name, 'wb') as path:
+				path.write(file.content)
+			print('Wrote to ' + path_name)
+		else:
+			zipname = str(self.submission.submission_id) + '.zip'
+			self.zippath = os.path.join(self.path, zipname)
 
-		with open(self.zippath, 'wb') as zp:
-			zp.write(file.content)
-		print('Wrote zip file to ' + self.zippath)
+			with open(self.zippath, 'wb') as zp:
+				zp.write(file.content)
+			print('Wrote zip file to ' + self.zippath)
 
 
 	def UnzipSubmission(self):
