@@ -82,7 +82,7 @@ class TestRunner(object):
 
 	
 	def FindAssignmentDLLPath(self, directory, assignment_name):
-		results = glob.glob(directory + '/**/Assignment1.dll', recursive=True)
+		results = glob.glob(directory + '/**/' + assignment_name, recursive=True)
 		if results: return results[0]
 		return None
 
