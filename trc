@@ -1,0 +1,2 @@
+- use os.path.join everywhere that a path name is manipulated
+- name all of the goddamn things the right way (e.g. ms_test)
