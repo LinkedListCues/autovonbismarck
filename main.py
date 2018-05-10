@@ -9,6 +9,7 @@ import argparse
 SANDBOX_DIR='./sandbox'
 INFO_DIR=SANDBOX_DIR+'/info'
 SUBMISSIONS_DIR=SANDBOX_DIR+'/submissions'
+TESTBED_DIR=SANDBOX_DIR+'/testbed'
 
 
 # if __name__ == '__main__':
@@ -58,6 +59,7 @@ def MakeAll():
 	print('Remaking ' + SANDBOX_DIR, ', ' + INFO_DIR + ', and ' + SUBMISSIONS_DIR)
 	os.makedirs(INFO_DIR, exist_ok=True)
 	os.makedirs(SUBMISSIONS_DIR, exist_ok=True)
+	os.makedirs(TESTBED_DIR, exist_ok=True)
 	print()
 
 def LoadConfig(config_file):
@@ -84,12 +86,12 @@ def LoadRoster(config, goal_path):
 
 	return submissions
 
-def PrepareSubmissions(config, submissions):
+def PrepareSubmissions(config, submissions, no_zip):
 	count = str(len(submissions))
 	for ind, submission in enumerate(submissions.values()):
 		print(str(ind + 1) + '\tof  ' + count)
 		prep = Preparer(config, submission, SUBMISSIONS_DIR)
-		prep.Prepare()
+		prep.Prepare(no_zip)
 
 def CalculateLatePenalties(submissions):
 	print('Calculating late penalties')
@@ -111,7 +113,7 @@ def Run(args):
 
 	config = LoadConfig(args.config)
 	submissions = LoadRoster(config, INFO_DIR+'/students.pickle')
-	PrepareSubmissions(config, submissions)
+	PrepareSubmissions(config, submissions, args.single_file)
 	CalculateLatePenalties(submissions)
 	# BuildSubmissions()
 	# GradeSubmissions()
@@ -133,6 +135,12 @@ parser.add_argument(
 	action='store_const',
 	const=True, default=False,
 	help='Clear out everything in the sandbox directory, then rebuild it from scratch.')
+
+parser.add_argument(
+	'--single-file',
+	action='store_const',
+	const=True,default=False,
+	help='Used for when the users submit only a single .cs file. Skips the unzipping step.')
 
 parser.add_argument(
 	'--test',

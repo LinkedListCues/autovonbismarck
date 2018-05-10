@@ -3,10 +3,12 @@
 	"base_url": "http://canvas.northwestern.edu/api/v1/",
 	
 	"build_path":"/mnt/c/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe",
-	"test_path":"/mnt/c/Program Files (x86)/Microsoft Visual Studio/2017/Community/Common7/IDE/MSTest.exe",
+	"test_path":"/mnt/c/Program Files (x86)/Microsoft Visual Studio/2017/Community/Common7/IDE/CommonExtensions/Microsoft/TestWindow/vstest.console.exe",
 
 	"course_id": "72859",
 	
 	"assignment_id": "461805",
-	"total_tests": 20
+	"total_tests": 20,
+
+	"testbed_path":"sandbox/testbed/TrieTests"
 }
