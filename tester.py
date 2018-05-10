@@ -13,7 +13,7 @@ class TestRunner(object):
 		self._assignment_dll = assignment_dll
 		self._test_dll = test_dll
 
-		self._test_string = self._mstest + ' "/testcontainer:"' + self._test_dll + ' "/detail:errormessage" "/nologo"'
+		self._test_string = self._mstest + ' ' + self._test_dll
 
 
 	def RunTests(self, submission):
