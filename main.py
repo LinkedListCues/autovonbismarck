@@ -10,6 +10,7 @@ SANDBOX_DIR='./sandbox'
 INFO_DIR=SANDBOX_DIR+'/info'
 SUBMISSIONS_DIR=SANDBOX_DIR+'/submissions'
 TESTBED_DIR=SANDBOX_DIR+'/testbed'
+RESULTS_DIR=SANDBOX_DIR+'/results'
 
 
 # if __name__ == '__main__':
@@ -102,6 +103,11 @@ def CalculateLatePenalties(submissions):
 		if hours_late <= 50: continue
 		submission.late_penalty = 0.3 if hours_late <= 170 else 1
 
+def RunAllTests(config, submissions):
+	tester = TestRunner(config, '', '')
+	for submission in submissions.values():
+		tester.Run(submission)
+		break
 
 def Run(args):
 	if not os.path.isdir(INFO_DIR) or not os.path.isdir(SUBMISSIONS_DIR):
@@ -115,6 +121,7 @@ def Run(args):
 	submissions = LoadRoster(config, INFO_DIR+'/students.pickle')
 	PrepareSubmissions(config, submissions, args.single_file)
 	CalculateLatePenalties(submissions)
+	RunAllTests(config, submissions)
 	# BuildSubmissions()
 	# GradeSubmissions()
 	# CollateResults()
