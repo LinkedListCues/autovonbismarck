@@ -105,8 +105,14 @@ def CalculateLatePenalties(submissions):
 
 def RunAllTests(config, submissions):
 	tester = TestRunner(config)
-	for submission in submissions.values():
+	count = str(len(submissions))
+	for ind, submission in enumerate(submissions.values()):
+		print(str(ind + 1) + ' of ' + count) 
 		tester.Run(submission)
+
+def GradeSubmissions(config, submissions):
+	grader = Grader()
+	for submission in submissions.values(): grader.Grade(submission)
 
 def Run(args):
 	if not os.path.isdir(INFO_DIR) or not os.path.isdir(SUBMISSIONS_DIR):
@@ -121,8 +127,7 @@ def Run(args):
 	PrepareSubmissions(config, submissions, args.single_file)
 	CalculateLatePenalties(submissions)
 	RunAllTests(config, submissions)
-	# BuildSubmissions()
-	# GradeSubmissions()
+	GradeSubmissions(config, submissions)
 	# CollateResults()
 	# UploadResults()
 
