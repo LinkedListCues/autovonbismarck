@@ -14,7 +14,6 @@ class CanvasConfig(object):
 
 		self.mstest_path = self._json['test_path']
 		self.msbuild_path = self._json['build_path']
-		self.total_tests = self._json['total_tests']
 
 		self.course_id = self._json['course_id']
 		self.assignment_id = self._json['assignment_id']
