@@ -1,4 +1,8 @@
-import subprocess, os, glob, shutil
+import subprocess, os, glob, shutil, pprint
+
+TESTBED_PATH='./sandbox/testbed'
+TRIE_PATH='./sandbox/testbed/Trie'
+TRIETESTS_PATH='sandbox\\\\testbed\\\\TrieTests\\\\bin\\\\Debug\\\\netcoreapp2.0\\\\'
 
 class TestRunner(object):
 	"""Builds a student's project; then runs unit tests on it.
@@ -7,13 +11,13 @@ class TestRunner(object):
 	def __init__(self, config, assignment_dll, test_dll):
 		super(TestRunner, self).__init__()
 
-		self._mstest = '"' + config.mstest_path + '"'  # this is kind of yikes, but, sigh
+		self._mstest = '"' + config.mstest_path + '"'
 		self._msbuild = '"' + config.msbuild_path + '"'
 
 		self._assignment_dll = assignment_dll
 		self._test_dll = test_dll
 
-		self._test_string = self._mstest + ' ' + self._test_dll
+		self._test_string = self._mstest + ' ' + TRIETESTS_PATH + 'TrieTests.dll'
 
 
 	def RunTests(self, submission):
@@ -89,3 +93,50 @@ class TestRunner(object):
 	def MakeFailureExplanation(self, submission_id, output_directory, explanation_string):
 		self.ExportOutput(submission_id, explanation_string, output_directory, True)
 		return (False, explanation_string)
+
+
+
+	def Run(self, submission):
+		print('Running tests for ' + str(submission.submission_id))
+		search_directory = submission.directory
+		# if len(os.listdir(search_directory)) == 0:
+		# 	return self.MakeFailureExplanation(submission.submission_id, './results', 'Nothing submitted.')
+
+		self.ClearFiles()
+		self.CopyFiles(search_directory)
+		self.BuildSolution()
+		self.RunAllTests()
+
+	def ClearFiles(self):
+		magic_dir =  TRIE_PATH
+		files = os.listdir(magic_dir)
+		for f in files:
+			if f.endswith('.cs'): os.remove(os.path.join(magic_dir, f))
+
+	# TODO fixme to be general
+	def CopyFiles(self, search_directory):
+		print('copying')
+		files = os.listdir(search_directory)
+		for f in files:
+			if f.endswith('.cs'):
+				src = os.path.join(search_directory, f)
+				dst = os.path.join(TRIE_PATH, f)
+				print(src)
+				print(dst)
+				shutil.copyfile(src, dst)
+
+	def BuildSolution(self):
+		# results = glob.glob(search_directory + '/**/*.csproj', recursive=True)
+		query = os.path.join(TESTBED_PATH,'*.sln')
+		results = glob.glob(query)
+		target = None
+		if results: target = results[0]  # here's hoping that they have only one .csproj
+
+		if not target: return
+		buildpath = self._msbuild + ' "' + target + '"'
+		output = subprocess.Popen(buildpath, stdout=subprocess.PIPE, shell=True).stdout.read()
+
+
+	def RunAllTests(self):
+		output = subprocess.Popen(self._test_string, stdout=subprocess.PIPE, shell=True).stdout.read()
+		print(output)
