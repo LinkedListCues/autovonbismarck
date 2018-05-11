@@ -24,8 +24,7 @@ class Grader(object):
 			lines = lines[:-2]
 
 		with open(comment_file, 'w') as stream:
-			for line in lines:
-				stream.write(line)
+			for line in lines: stream.write(line)
 
 
 	# TODO this feels shitty [at least the shittiness is well-hidden - Ethan]
