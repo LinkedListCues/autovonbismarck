@@ -12,7 +12,6 @@ class Grader(object):
 		# self.CleanResults(comment_file)
 		grade = self.CalculateResults(comment_file)
 		submission.grade = int((1.0 - submission.late_penalty) * grade)
-		print(submission.grade)
 
 
 	# TODO this feels shitty [at least the shittiness is well-hidden - Ethan]
