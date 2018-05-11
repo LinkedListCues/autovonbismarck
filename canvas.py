@@ -115,17 +115,18 @@ class Submission(object):
 		if (self.submitted):
 			self.attachment_urls = [att['url'] for att in json['attachments']]
 
-	def UploadResults(self, config, no_comment=False):
+	def Upload(self, comments=False):
 		assert self.grade >= 0, 'Grade never set for: ' + self.submission_id
 		print('Uploading result for ' + self.netid + ' Grade: ' + str(self.grade))
 		
-		# url = self.config.GetUploadURL(self.user_id)
-		url = "https://canvas.northwestern.edu/api/v1/courses/72859/assignments/458956/submissions/" + self.user_id
-		with open(self.comment_file, 'r') as comment_contents:
-			comments = '\n'.join(comment_contents.readlines())
+		url = self.config.GetUploadURL(self.user_id)
 		
-		payload = { 'access_token': config.api_key, 'subission[posted_grade]': self.grade }
-		if not no_comment: payload['comment[text_comment]'] = comments
+		payload = { 'access_token': self.config.api_key, 'submission[posted_grade]': self.grade }
+		
+		if comments:
+			with open(self.comment_file, 'r') as comment_contents:
+				comments = '\n'.join(comment_contents.readlines())
+			payload['comment[text_comment]'] = comments
 
 		r = requests.put(url, params=payload)
 

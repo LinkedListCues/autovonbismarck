@@ -114,6 +114,9 @@ def GradeSubmissions(config, submissions):
 	grader = Grader()
 	for submission in submissions.values(): grader.Grade(submission)
 
+def UploadResults(submissions, comments):
+	for submission in submissions.values(): submission.Upload(comments)
+
 def Run(args):
 	if not os.path.isdir(INFO_DIR) or not os.path.isdir(SUBMISSIONS_DIR):
 		MakeAll()
@@ -128,8 +131,7 @@ def Run(args):
 	CalculateLatePenalties(submissions)
 	RunAllTests(config, submissions)
 	GradeSubmissions(config, submissions)
-	# CollateResults()
-	# UploadResults()
+	UploadResults(submissions, args.comments)
 
 
 parser = argparse.ArgumentParser(description='Download, build, test, and grade studnets\' C# submissions. Made for EECS 214.')
@@ -160,10 +162,10 @@ parser.add_argument(
 	default=False)
 
 parser.add_argument(
-	'--no-comments',
+	'--comments',
 	action='store_const',
 	const=True, default=False,
-	help='Do not add comments to upload; only post the grades.')
+	help='Add comments to the upload. Used in the final steps')
 
 
 args = parser.parse_args()
