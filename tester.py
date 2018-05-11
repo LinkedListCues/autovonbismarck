@@ -99,7 +99,9 @@ class TestRunner(object):
 		# 	return self.MakeFailureExplanation(submission.submission_id, './results', 'Nothing submitted.')
 
 		filename = os.path.join('./results', submission.submission_id + '_output')
-		if os.path.exists(filename): return # assume that we got it right the first time
+		if os.path.exists(filename):
+			print('Already run.')
+			return # assume that we got it right the first time
 
 		self.ClearFiles()
 		self.CopyFiles(search_directory)
