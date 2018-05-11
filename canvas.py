@@ -120,9 +120,8 @@ class Submission(object):
 		print('Uploading result for ' + self.netid + ' Grade: ' + str(self.grade))
 		
 		url = self.config.GetUploadURL(self.user_id)
-		
+
 		payload = { 'access_token': self.config.api_key, 'submission[posted_grade]': self.grade }
-		
 		if comments:
 			with open(self.comment_file, 'r') as comment_contents:
 				comments = '\n'.join(comment_contents.readlines())
