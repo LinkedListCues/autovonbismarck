@@ -105,7 +105,8 @@ class TestRunner(object):
 		self.ClearFiles()
 		self.CopyFiles(search_directory)
 		self.BuildSolution()
-		self.RunAllTests()
+		filename = os.path.join('./results', submission.submission_id + '_output')
+		self.RunAllTests(filename)
 
 	def ClearFiles(self):
 		magic_dir =  TRIE_PATH
@@ -137,6 +138,8 @@ class TestRunner(object):
 		output = subprocess.Popen(buildpath, stdout=subprocess.PIPE, shell=True).stdout.read()
 
 
-	def RunAllTests(self):
+	def RunAllTests(self, filename):
 		output = subprocess.Popen(self._test_string, stdout=subprocess.PIPE, shell=True).stdout.read()
-		print(output)
+		print('Writing output to file: ' + filename)
+		with open(filename, 'wb') as output_file:
+			output_file.write(output)
