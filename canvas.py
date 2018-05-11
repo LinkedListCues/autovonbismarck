@@ -117,7 +117,7 @@ class Submission(object):
 
 	def Upload(self, comments=False):
 		assert self.grade >= 0, 'Grade never set for: ' + self.submission_id
-		print('Uploading result for ' + self.netid + ' Grade: ' + str(self.grade))
+		print('Uploading for ' + self.netid + '\tGrade: ' + str(self.grade))
 		
 		url = self.config.GetUploadURL(self.user_id)
 
