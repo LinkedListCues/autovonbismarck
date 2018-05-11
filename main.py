@@ -95,7 +95,7 @@ def PrepareSubmissions(config, submissions, no_zip):
 		prep.Prepare(no_zip)
 
 def CalculateLatePenalties(submissions):
-	print('Calculating late penalties')
+	print('Calculating late penalties\n')
 	# allow for off by two errors, because we don't trust python
 	# also, just give everyone the goddamn extension, because we get things like 197/208 students going for it anyway
 	for submission in submissions.values():
@@ -104,10 +104,9 @@ def CalculateLatePenalties(submissions):
 		submission.late_penalty = 0.3 if hours_late <= 170 else 1
 
 def RunAllTests(config, submissions):
-	tester = TestRunner(config, '', '')
+	tester = TestRunner(config)
 	for submission in submissions.values():
 		tester.Run(submission)
-		break
 
 def Run(args):
 	if not os.path.isdir(INFO_DIR) or not os.path.isdir(SUBMISSIONS_DIR):

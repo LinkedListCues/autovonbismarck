@@ -8,15 +8,11 @@ class TestRunner(object):
 	"""Builds a student's project; then runs unit tests on it.
 	Grading is handled elsewhere, though - nota bene."""
 
-	def __init__(self, config, assignment_dll, test_dll):
+	def __init__(self, config):
 		super(TestRunner, self).__init__()
 
 		self._mstest = '"' + config.mstest_path + '"'
 		self._msbuild = '"' + config.msbuild_path + '"'
-
-		self._assignment_dll = assignment_dll
-		self._test_dll = test_dll
-
 		self._test_string = self._mstest + ' ' + TRIETESTS_PATH + 'TrieTests.dll'
 
 
@@ -102,10 +98,12 @@ class TestRunner(object):
 		# if len(os.listdir(search_directory)) == 0:
 		# 	return self.MakeFailureExplanation(submission.submission_id, './results', 'Nothing submitted.')
 
+		filename = os.path.join('./results', submission.submission_id + '_output')
+		if os.path.exists(filename): return # assume that we got it right the first time
+
 		self.ClearFiles()
 		self.CopyFiles(search_directory)
 		self.BuildSolution()
-		filename = os.path.join('./results', submission.submission_id + '_output')
 		self.RunAllTests(filename)
 
 	def ClearFiles(self):
@@ -116,14 +114,11 @@ class TestRunner(object):
 
 	# TODO fixme to be general
 	def CopyFiles(self, search_directory):
-		print('copying')
 		files = os.listdir(search_directory)
 		for f in files:
 			if f.endswith('.cs'):
 				src = os.path.join(search_directory, f)
 				dst = os.path.join(TRIE_PATH, f)
-				print(src)
-				print(dst)
 				shutil.copyfile(src, dst)
 
 	def BuildSolution(self):
